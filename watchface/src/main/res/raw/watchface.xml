@@ -15,7 +15,7 @@
     </UserConfigurations>
 
     <Scene>
-            <!-- Top Battery Widget -->
+        <!-- Top Battery Widget -->
         <Group name="battery_widget" x="125" y="25" width="200" height="50">
             <Variant mode="AMBIENT" target="alpha" value="0" />
             <Launch target="battery" />
@@ -30,7 +30,7 @@
                 <Transform target="scaleX" value="[BATTERY_PERCENT] / 100" />
                 <PartDraw x="0" y="0" width="48" height="6">
                     <Line startX="0" startY="3" endX="48" endY="3">
-                        <Stroke color="#ffaaee00" thickness="6" cap="ROUND" />
+                        <Stroke color="[CONFIGURATION.timeColor]" thickness="6" cap="ROUND" />
                     </Line>
                 </PartDraw>
             </Group>
@@ -96,7 +96,7 @@
             <Complication type="SHORT_TEXT">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="73" y="5" width="24" height="24">
+                <PartImage x="73" y="5" width="24" height="24" tintColor="#ffffffff">
                     <Image resource="[COMPLICATION.ICON]" />
                 </PartImage>
                 <PartText x="0" y="25" width="170" height="35">
@@ -129,22 +129,22 @@
         </ComplicationSlot>
 
         <!-- Row 2: Clock Display -->
-        <Group name="clock_widget" x="0" y="182" width="450" height="85">
+        <Group name="clock_widget" x="0" y="182" width="450" height="120">
             <Launch target="alarm" />
-            <DigitalClock x="0" y="0" width="450" height="85">
+            <DigitalClock x="0" y="0" width="450" height="120">
                 <!-- Interactive Mode -->
-                <TimeText format="hh:mm" x="0" y="0" width="450" height="85" align="CENTER">
+                <TimeText format="hh:mm" x="0" y="0" width="450" height="120" align="CENTER">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="86" weight="BOLD" />
+                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
                 </TimeText>
-                <TimeText format="ss" x="350" y="10" width="70" height="40" align="START">
+                <TimeText format="ss" x="380" y="25" width="70" height="40" align="START">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="22" weight="BOLD" />
+                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="26" weight="BOLD" />
                 </TimeText>
                 <!-- Ambient Mode -->
-                <TimeText format="hh:mm" alpha="0" x="0" y="0" width="450" height="85" align="CENTER">
+                <TimeText format="hh:mm" alpha="0" x="0" y="0" width="450" height="120" align="CENTER">
                     <Variant mode="AMBIENT" target="alpha" value="255" />
-                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="86" weight="BOLD" />
+                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
                 </TimeText>
             </DigitalClock>
         </Group>
