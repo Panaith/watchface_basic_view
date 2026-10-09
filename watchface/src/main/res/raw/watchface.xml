@@ -18,7 +18,7 @@
         <!-- Top Battery Widget -->
         <Group name="battery_widget" x="125" y="25" width="200" height="50">
             <Variant mode="AMBIENT" target="alpha" value="0" />
-            <Launch target="battery" />
+            <Launch target="BATTERY_STATUS" />
             <!-- Background Bar -->
             <PartDraw x="76" y="5" width="48" height="6">
                 <Line startX="0" startY="3" endX="48" endY="3">
@@ -130,7 +130,7 @@
 
         <!-- Row 2: Clock Display -->
         <Group name="clock_widget" x="0" y="182" width="450" height="120">
-            <Launch target="alarm" />
+            <Launch target="ALARM" />
             <DigitalClock x="0" y="0" width="450" height="120">
                 <!-- Interactive Mode -->
                 <TimeText format="hh:mm" x="0" y="0" width="450" height="120" align="CENTER">
@@ -330,7 +330,7 @@
         <!-- Custom Logo -->
         <Group name="logo_widget" x="0" y="400" width="450" height="35">
             <Variant mode="AMBIENT" target="alpha" value="0" />
-            <Launch target="contacts" />
+            <Launch target="com.google.android.contacts" />
             <PartText x="0" y="0" width="450" height="35">
                 <Text align="CENTER">
                     <Font family="corinthia" size="28" color="#ffcccccc">PanSar</Font>
