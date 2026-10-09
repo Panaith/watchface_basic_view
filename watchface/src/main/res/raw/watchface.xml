@@ -17,6 +17,7 @@
     <Scene>
             <!-- Top Battery Widget -->
         <Group name="battery_widget" x="125" y="25" width="200" height="50">
+            <Variant mode="AMBIENT" target="alpha" value="0" />
             <Launch target="battery" />
             <!-- Background Bar -->
             <PartDraw x="76" y="5" width="48" height="6">
@@ -50,6 +51,8 @@
             <DefaultProviderPolicy defaultSystemProvider="DAY_OF_WEEK_AND_DATE" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingBox x="0" y="0" width="170" height="60" />
             <Complication type="SHORT_TEXT">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartText x="0" y="5" width="170" height="20">
                     <Text align="CENTER">
                         <Font family="SYNC_TO_DEVICE" size="16" color="#ffaaaaaa" weight="NORMAL">
@@ -64,15 +67,25 @@
                         </Font>
                     </Text>
                 </PartText>
+                </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="64" y="9" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="MONOCHROMATIC_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="64" y="9" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="64" y="9" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
         </ComplicationSlot>
 
@@ -81,6 +94,8 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingBox x="0" y="0" width="170" height="60" />
             <Complication type="SHORT_TEXT">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="73" y="5" width="24" height="24">
                     <Image resource="[COMPLICATION.ICON]" />
                 </PartImage>
@@ -91,15 +106,25 @@
                         </Font>
                     </Text>
                 </PartText>
+                </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="64" y="9" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="MONOCHROMATIC_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="64" y="9" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="64" y="9" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
         </ComplicationSlot>
 
@@ -129,6 +154,8 @@
             <DefaultProviderPolicy defaultSystemProvider="NEXT_EVENT" defaultSystemProviderType="LONG_TEXT" />
             <BoundingBox x="0" y="0" width="370" height="45" />
             <Complication type="LONG_TEXT">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartText x="0" y="0" width="370" height="18">
                     <Text align="CENTER">
                         <Font family="SYNC_TO_DEVICE" size="14" color="#ffaaaaaa" weight="NORMAL">
@@ -143,8 +170,11 @@
                         </Font>
                     </Text>
                 </PartText>
+                </Group>
             </Complication>
             <Complication type="SHORT_TEXT">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartText x="0" y="0" width="370" height="18">
                     <Text align="CENTER">
                         <Font family="SYNC_TO_DEVICE" size="14" color="#ffaaaaaa" weight="NORMAL">
@@ -159,15 +189,25 @@
                         </Font>
                     </Text>
                 </PartText>
+                </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="164" y="1" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="MONOCHROMATIC_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="164" y="1" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="164" y="1" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
         </ComplicationSlot>
 
@@ -176,13 +216,22 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
             <BoundingOval x="0" y="0" width="42" height="42" />
             <Complication type="MONOCHROMATIC_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
         </ComplicationSlot>
 
@@ -190,13 +239,22 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
             <BoundingOval x="0" y="0" width="42" height="42" />
             <Complication type="MONOCHROMATIC_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
         </ComplicationSlot>
 
@@ -204,13 +262,22 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
             <BoundingOval x="0" y="0" width="42" height="42" />
             <Complication type="MONOCHROMATIC_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
         </ComplicationSlot>
 
@@ -218,13 +285,22 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
             <BoundingOval x="0" y="0" width="42" height="42" />
             <Complication type="MONOCHROMATIC_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
         </ComplicationSlot>
 
@@ -232,18 +308,28 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
             <BoundingOval x="0" y="0" width="42" height="42" />
             <Complication type="MONOCHROMATIC_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
+                <Group x="0" y="0" width="450" height="450">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartImage x="0" y="0" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
+                </Group>
             </Complication>
         </ComplicationSlot>
 
         <!-- Custom Logo -->
         <Group name="logo_widget" x="0" y="400" width="450" height="35">
+            <Variant mode="AMBIENT" target="alpha" value="0" />
             <Launch target="contacts" />
             <PartText x="0" y="0" width="450" height="35">
                 <Text align="CENTER">
