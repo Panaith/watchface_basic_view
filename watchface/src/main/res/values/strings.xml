@@ -1,0 +1,9 @@
+<resources>
+    <string name="watch_face_name">minimal_watchface</string>
+    <string name="greeting">Goodmorning</string>
+    <string name="time_color">Time Color</string>
+    <string name="color_white">White</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_green">Green</string>
+</resources>

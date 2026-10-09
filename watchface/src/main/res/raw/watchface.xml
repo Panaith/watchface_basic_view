@@ -1,0 +1,265 @@
+<WatchFace
+    height="450"
+    width="450">
+    <Metadata
+        key="CLOCK_TYPE"
+        value="DIGITAL" />
+
+    <UserConfigurations>
+        <ColorConfiguration id="timeColor" displayName="time_color" defaultValue="0">
+            <ColorOption id="0" displayName="color_white" colors="#ffffffff" />
+            <ColorOption id="1" displayName="color_orange" colors="#ffff7f00" />
+            <ColorOption id="2" displayName="color_blue" colors="#ff00aaff" />
+            <ColorOption id="3" displayName="color_green" colors="#ffaaee00" />
+        </ColorConfiguration>
+    </UserConfigurations>
+
+    <Scene>
+        <!-- Top Battery Widget (Not a Complication) -->
+        <!-- Clicking opens the battery app -->
+        <Group name="battery_widget" x="125" y="0" width="200" height="50">
+            <Launch target="battery" />
+
+                <PartText x="0" y="15" width="200" height="35">
+                    <Text align="CENTER">
+                        <Font family="SYNC_TO_DEVICE" size="24" color="#ffffffff" weight="BOLD">
+                            <Template>
+                                <![CDATA[%s%%]]><Parameter expression="[BATTERY_PERCENT]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+
+                <!-- Background Bar -->
+                <PartDraw x="25" y="5" width="150" height="8">
+                <Line startX="0" startY="4" endX="150" endY="4">
+                    <Stroke color="#ff333333" thickness="8" cap="ROUND" />
+                </Line>
+            </PartDraw>
+            <!-- Foreground Progress Bar -->
+            <Group name="battery_progress" x="25" y="5" width="150" height="8" pivotX="0" pivotY="0.5">
+                <Transform target="scaleX" value="[BATTERY_PERCENT] / 100" />
+                <PartDraw x="0" y="0" width="150" height="8">
+                    <Line startX="0" startY="4" endX="150" endY="4">
+                        <Stroke color="#ffaaee00" thickness="8" cap="ROUND" />
+                    </Line>
+                </PartDraw>
+            </Group>
+        </Group>
+
+        <!-- Row 1: Left Complication (Date) -->
+        <ComplicationSlot
+            slotId="1"
+            supportedTypes="SHORT_TEXT EMPTY"
+            x="45"
+            y="70"
+            width="170"
+            height="60">
+            <DefaultProviderPolicy
+                defaultSystemProvider="DAY_OF_WEEK_AND_DATE"
+                defaultSystemProviderType="SHORT_TEXT" />
+            <BoundingOval x="0" y="0" width="170" height="60" />
+            <Complication type="SHORT_TEXT">
+                <!-- Title (Day) -->
+                <PartText x="0" y="0" width="170" height="25">
+                    <Text align="CENTER">
+                        <Font family="SYNC_TO_DEVICE" size="20" color="#ffaaaaaa" weight="BOLD">
+                            <Template>
+                                <![CDATA[%s]]><Parameter expression="[COMPLICATION.TITLE]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+                <!-- Text (Date) -->
+                <PartText x="0" y="25" width="170" height="35">
+                    <Text align="CENTER">
+                        <Font family="SYNC_TO_DEVICE" size="28" color="#ffffffff" weight="BOLD">
+                            <Template>
+                                <![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </Complication>
+        </ComplicationSlot>
+
+        <!-- Row 1: Right Complication (Weather) -->
+        <ComplicationSlot
+            slotId="2"
+            supportedTypes="SHORT_TEXT EMPTY"
+            x="235"
+            y="70"
+            width="170"
+            height="60">
+            <DefaultProviderPolicy
+                defaultSystemProvider="EMPTY"
+                defaultSystemProviderType="SHORT_TEXT" />
+            <BoundingOval x="0" y="0" width="170" height="60" />
+            <Complication type="SHORT_TEXT">
+                <!-- Icon -->
+                <PartImage x="70" y="0" width="30" height="30">
+                    <Image resource="[COMPLICATION.ICON]" />
+                </PartImage>
+                <!-- Text (Temperature) -->
+                <PartText x="0" y="30" width="170" height="30">
+                    <Text align="CENTER">
+                        <Font family="SYNC_TO_DEVICE" size="28" color="#ffffffff" weight="BOLD">
+                            <Template>
+                                <![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </Complication>
+        </ComplicationSlot>
+
+        <!-- Row 2: Clock Display -->
+        <Group name="clock_widget" x="0" y="140" width="450" height="90">
+            <Launch target="alarm" />
+
+            <DigitalClock x="0" y="0" width="450" height="90">
+                <!-- Interactive Mode -->
+                <!-- HH:mm part -->
+                <TimeText format="hh:mm" x="50" y="0" width="280" height="90">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
+                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="80" weight="BOLD" />
+                </TimeText>
+                <!-- ss part -->
+                <TimeText format="ss" x="330" y="10" width="70" height="40">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
+                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="25" weight="BOLD" />
+                </TimeText>
+
+                <!-- Ambient Mode (Hides seconds and centers the time) -->
+                <TimeText format="hh:mm" alpha="0" x="0" y="0" width="450" height="90" align="CENTER">
+                    <Variant mode="AMBIENT" target="alpha" value="255" />
+                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="80" weight="BOLD" />
+                </TimeText>
+            </DigitalClock>
+        </Group>
+
+        <!-- Row 3: Next Day Event Complication -->
+        <ComplicationSlot
+            slotId="3"
+            supportedTypes="LONG_TEXT SHORT_TEXT EMPTY"
+            x="50"
+            y="240"
+            width="350"
+            height="70">
+            <DefaultProviderPolicy
+                defaultSystemProvider="NEXT_EVENT"
+                defaultSystemProviderType="LONG_TEXT" />
+            <BoundingOval x="0" y="0" width="350" height="70" />
+
+            <Complication type="LONG_TEXT">
+                <!-- Title -->
+                <PartText x="0" y="5" width="350" height="25">
+                    <Text align="CENTER">
+                        <Font family="SYNC_TO_DEVICE" size="20" color="#ffaaaaaa" weight="BOLD">
+                            <Template>
+                                <![CDATA[%s]]><Parameter expression="[COMPLICATION.TITLE]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+                <!-- Text -->
+                <PartText x="0" y="30" width="350" height="35">
+                    <Text align="CENTER">
+                        <Font family="SYNC_TO_DEVICE" size="28" color="#ffffffff" weight="BOLD">
+                            <Template>
+                                <![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </Complication>
+
+            <Complication type="SHORT_TEXT">
+                <!-- Title -->
+                <PartText x="0" y="5" width="350" height="25">
+                    <Text align="CENTER">
+                        <Font family="SYNC_TO_DEVICE" size="20" color="#ffaaaaaa" weight="BOLD">
+                            <Template>
+                                <![CDATA[%s]]><Parameter expression="[COMPLICATION.TITLE]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+                <!-- Text -->
+                <PartText x="0" y="30" width="350" height="35">
+                    <Text align="CENTER">
+                        <Font family="SYNC_TO_DEVICE" size="28" color="#ffffffff" weight="BOLD">
+                            <Template>
+                                <![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </Complication>
+        </ComplicationSlot>
+
+        <!-- Bottom: App Shortcuts (5 Complications) -->
+        <ComplicationSlot slotId="4" supportedTypes="MONOCHROMATIC_IMAGE SMALL_IMAGE EMPTY" x="80" y="325" width="50" height="50">
+            <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+            <BoundingOval x="0" y="0" width="50" height="50" />
+            <Complication type="MONOCHROMATIC_IMAGE">
+                <PartImage x="0" y="0" width="50" height="50" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+            </Complication>
+            <Complication type="SMALL_IMAGE">
+                <PartImage x="0" y="0" width="50" height="50"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+            </Complication>
+        </ComplicationSlot>
+
+        <ComplicationSlot slotId="5" supportedTypes="MONOCHROMATIC_IMAGE SMALL_IMAGE EMPTY" x="140" y="325" width="50" height="50">
+            <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+            <BoundingOval x="0" y="0" width="50" height="50" />
+            <Complication type="MONOCHROMATIC_IMAGE">
+                <PartImage x="0" y="0" width="50" height="50" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+            </Complication>
+            <Complication type="SMALL_IMAGE">
+                <PartImage x="0" y="0" width="50" height="50"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+            </Complication>
+        </ComplicationSlot>
+
+        <ComplicationSlot slotId="6" supportedTypes="MONOCHROMATIC_IMAGE SMALL_IMAGE EMPTY" x="200" y="325" width="50" height="50">
+            <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+            <BoundingOval x="0" y="0" width="50" height="50" />
+            <Complication type="MONOCHROMATIC_IMAGE">
+                <PartImage x="0" y="0" width="50" height="50" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+            </Complication>
+            <Complication type="SMALL_IMAGE">
+                <PartImage x="0" y="0" width="50" height="50"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+            </Complication>
+        </ComplicationSlot>
+
+        <ComplicationSlot slotId="7" supportedTypes="MONOCHROMATIC_IMAGE SMALL_IMAGE EMPTY" x="260" y="325" width="50" height="50">
+            <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+            <BoundingOval x="0" y="0" width="50" height="50" />
+            <Complication type="MONOCHROMATIC_IMAGE">
+                <PartImage x="0" y="0" width="50" height="50" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+            </Complication>
+            <Complication type="SMALL_IMAGE">
+                <PartImage x="0" y="0" width="50" height="50"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+            </Complication>
+        </ComplicationSlot>
+
+        <ComplicationSlot slotId="8" supportedTypes="MONOCHROMATIC_IMAGE SMALL_IMAGE EMPTY" x="320" y="325" width="50" height="50">
+            <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+            <BoundingOval x="0" y="0" width="50" height="50" />
+            <Complication type="MONOCHROMATIC_IMAGE">
+                <PartImage x="0" y="0" width="50" height="50" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+            </Complication>
+            <Complication type="SMALL_IMAGE">
+                <PartImage x="0" y="0" width="50" height="50"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+            </Complication>
+        </ComplicationSlot>
+
+        <!-- Custom Logo -->
+        <PartText x="0" y="385" width="450" height="65">
+            <Text align="CENTER">
+                <Font family="corinthia" size="48" color="#ffffffff">PanSar</Font>
+            </Text>
+        </PartText>
+
+    </Scene>
+</WatchFace>
