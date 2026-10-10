@@ -3,46 +3,46 @@
 
     <UserConfigurations>
         <!-- Booleans -->
-        <BooleanConfiguration id="showBattery" displayName="Show Battery" defaultValue="TRUE" />
-        <BooleanConfiguration id="showSeconds" displayName="Show Seconds" defaultValue="TRUE" />
+        <BooleanConfiguration id="showBattery" displayName="config_show_battery" defaultValue="TRUE" />
+        <BooleanConfiguration id="showSeconds" displayName="config_show_seconds" defaultValue="TRUE" />
         
         <!-- Colors -->
-        <ColorConfiguration id="bgColor" displayName="Background Color" defaultValue="0">
-            <ColorOption id="0" displayName="Black" colors="#ff000000" />
-            <ColorOption id="1" displayName="Dark Blue" colors="#ff000022" />
-            <ColorOption id="2" displayName="Dark Red" colors="#ff220000" />
-            <ColorOption id="3" displayName="Dark Green" colors="#ff002200" />
+        <ColorConfiguration id="bgColor" displayName="config_bg_color" defaultValue="0">
+            <ColorOption id="0" displayName="opt_black" colors="#ff000000" />
+            <ColorOption id="1" displayName="opt_dark_blue" colors="#ff000022" />
+            <ColorOption id="2" displayName="opt_dark_red" colors="#ff220000" />
+            <ColorOption id="3" displayName="opt_dark_green" colors="#ff002200" />
         </ColorConfiguration>
-        <ColorConfiguration id="batteryColor" displayName="Battery Color" defaultValue="0">
-            <ColorOption id="0" displayName="White" colors="#ffffffff" />
-            <ColorOption id="1" displayName="Green" colors="#ffaaee00" />
-            <ColorOption id="2" displayName="Orange" colors="#ffff7f00" />
+        <ColorConfiguration id="batteryColor" displayName="config_battery_color" defaultValue="0">
+            <ColorOption id="0" displayName="opt_white" colors="#ffffffff" />
+            <ColorOption id="1" displayName="opt_green" colors="#ffaaee00" />
+            <ColorOption id="2" displayName="opt_orange" colors="#ffff7f00" />
         </ColorConfiguration>
-        <ColorConfiguration id="fontsColor" displayName="Fonts Color" defaultValue="0">
-            <ColorOption id="0" displayName="White" colors="#ffffffff" />
-            <ColorOption id="1" displayName="Light Grey" colors="#ffdddddd" />
-            <ColorOption id="2" displayName="Cyan" colors="#ff00ffff" />
+        <ColorConfiguration id="fontsColor" displayName="config_fonts_color" defaultValue="0">
+            <ColorOption id="0" displayName="opt_white" colors="#ffffffff" />
+            <ColorOption id="1" displayName="opt_light_grey" colors="#ffdddddd" />
+            <ColorOption id="2" displayName="opt_cyan" colors="#ff00ffff" />
         </ColorConfiguration>
-        <ColorConfiguration id="accentColor" displayName="Accent Color" defaultValue="0">
-            <ColorOption id="0" displayName="Green" colors="#ffaaee00" />
-            <ColorOption id="1" displayName="White" colors="#ffffffff" />
-            <ColorOption id="2" displayName="Orange" colors="#ffff7f00" />
-            <ColorOption id="3" displayName="Blue" colors="#ff00aaff" />
+        <ColorConfiguration id="accentColor" displayName="config_accent_color" defaultValue="0">
+            <ColorOption id="0" displayName="opt_green" colors="#ffaaee00" />
+            <ColorOption id="1" displayName="opt_white" colors="#ffffffff" />
+            <ColorOption id="2" displayName="opt_orange" colors="#ffff7f00" />
+            <ColorOption id="3" displayName="opt_blue" colors="#ff00aaff" />
         </ColorConfiguration>
 
         <!-- Lists -->
-        <ListConfiguration id="clockWeight" displayName="Clock Font Weight" defaultValue="1">
-            <ListOption id="0" displayName="Normal" />
-            <ListOption id="1" displayName="Bold" />
-            <ListOption id="2" displayName="Light" />
+        <ListConfiguration id="clockWeight" displayName="config_clock_weight" defaultValue="1">
+            <ListOption id="0" displayName="opt_normal" />
+            <ListOption id="1" displayName="opt_bold" />
+            <ListOption id="2" displayName="opt_light" />
         </ListConfiguration>
-        <ListConfiguration id="clockFormat" displayName="Clock Format" defaultValue="0">
-            <ListOption id="0" displayName="24 Hour" />
-            <ListOption id="1" displayName="12 Hour" />
+        <ListConfiguration id="clockFormat" displayName="config_clock_format" defaultValue="0">
+            <ListOption id="0" displayName="opt_24_hour" />
+            <ListOption id="1" displayName="opt_12_hour" />
         </ListConfiguration>
-        <ListConfiguration id="bgPattern" displayName="Background Style" defaultValue="0">
-            <ListOption id="0" displayName="Solid Color" />
-            <ListOption id="1" displayName="Vignette" />
+        <ListConfiguration id="bgPattern" displayName="config_bg_pattern" defaultValue="0">
+            <ListOption id="0" displayName="opt_solid_color" />
+            <ListOption id="1" displayName="opt_vignette" />
         </ListConfiguration>
     </UserConfigurations>
 
