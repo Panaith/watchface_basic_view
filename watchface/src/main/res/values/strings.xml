@@ -1,5 +1,5 @@
 <resources>
-    <string name="watch_face_name">minimal_watchface</string>
+    <string name="watch_face_name">watchface_basic_view</string>
     <string name="greeting">Goodmorning</string>
     
     <!-- Configurations -->

@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.pansar.minimal_watchface"
+    namespace = "com.pansar.watchface_basic_view"
     compileSdk {
         version = release(37)
     }
 
     defaultConfig {
-        applicationId = "com.pansar.minimal_watchface"
+        applicationId = "com.pansar.watchface_basic_view"
         minSdk = 36
         targetSdk = 37
         versionCode = 1
