@@ -43,6 +43,9 @@
         <ListConfiguration id="bgPattern" displayName="config_bg_pattern" defaultValue="0">
             <ListOption id="0" displayName="opt_solid_color" />
             <ListOption id="1" displayName="opt_vignette" />
+            <ListOption id="2" displayName="opt_grid" />
+            <ListOption id="3" displayName="opt_circles" />
+            <ListOption id="4" displayName="opt_diagonals" />
         </ListConfiguration>
     </UserConfigurations>
 
@@ -61,6 +64,58 @@
                 <Rect x="0" y="0" width="450" height="450">
                     <Stroke color="#ff000000" thickness="80" />
                 </Rect>
+            </PartDraw>
+        </Group>
+
+        <!-- Grid Pattern (Pattern 2) -->
+        <Group x="0" y="0" width="450" height="450">
+            <Transform target="alpha" value="[CONFIGURATION.bgPattern] == 2 ? 30 : 0" />
+            <PartDraw x="0" y="0" width="450" height="450">
+                <Line startX="50" startY="0" endX="50" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="100" startY="0" endX="100" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="150" startY="0" endX="150" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="200" startY="0" endX="200" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="250" startY="0" endX="250" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="300" startY="0" endX="300" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="350" startY="0" endX="350" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="400" startY="0" endX="400" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+
+                <Line startX="0" startY="50" endX="450" endY="50"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="0" startY="100" endX="450" endY="100"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="0" startY="150" endX="450" endY="150"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="0" startY="200" endX="450" endY="200"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="0" startY="250" endX="450" endY="250"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="0" startY="300" endX="450" endY="300"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="0" startY="350" endX="450" endY="350"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+                <Line startX="0" startY="400" endX="450" endY="400"> <Stroke color="#ffffffff" thickness="1"/> </Line>
+            </PartDraw>
+        </Group>
+
+        <!-- Circles Pattern (Pattern 3) -->
+        <Group x="0" y="0" width="450" height="450">
+            <Transform target="alpha" value="[CONFIGURATION.bgPattern] == 3 ? 20 : 0" />
+            <PartDraw x="0" y="0" width="450" height="450">
+                <Ellipse x="175" y="175" width="100" height="100"> <Stroke color="#ffffffff" thickness="2"/> </Ellipse>
+                <Ellipse x="125" y="125" width="200" height="200"> <Stroke color="#ffffffff" thickness="2"/> </Ellipse>
+                <Ellipse x="75" y="75" width="300" height="300"> <Stroke color="#ffffffff" thickness="2"/> </Ellipse>
+                <Ellipse x="25" y="25" width="400" height="400"> <Stroke color="#ffffffff" thickness="2"/> </Ellipse>
+            </PartDraw>
+        </Group>
+
+        <!-- Diagonal Pattern (Pattern 4) -->
+        <Group x="0" y="0" width="450" height="450">
+            <Transform target="alpha" value="[CONFIGURATION.bgPattern] == 4 ? 20 : 0" />
+            <PartDraw x="0" y="0" width="450" height="450">
+                <Line startX="0" startY="0" endX="450" endY="450"> <Stroke color="#ffffffff" thickness="3"/> </Line>
+                <Line startX="100" startY="-100" endX="550" endY="350"> <Stroke color="#ffffffff" thickness="3"/> </Line>
+                <Line startX="200" startY="-200" endX="650" endY="250"> <Stroke color="#ffffffff" thickness="3"/> </Line>
+                <Line startX="-100" startY="100" endX="350" endY="550"> <Stroke color="#ffffffff" thickness="3"/> </Line>
+                <Line startX="-200" startY="200" endX="250" endY="650"> <Stroke color="#ffffffff" thickness="3"/> </Line>
+                <Line startX="450" startY="0" endX="0" endY="450"> <Stroke color="#ffffffff" thickness="3"/> </Line>
+                <Line startX="550" startY="100" endX="100" endY="550"> <Stroke color="#ffffffff" thickness="3"/> </Line>
+                <Line startX="650" startY="200" endX="200" endY="650"> <Stroke color="#ffffffff" thickness="3"/> </Line>
+                <Line startX="350" startY="-100" endX="-100" endY="350"> <Stroke color="#ffffffff" thickness="3"/> </Line>
+                <Line startX="250" startY="-200" endX="-200" endY="250"> <Stroke color="#ffffffff" thickness="3"/> </Line>
             </PartDraw>
         </Group>
 
@@ -178,79 +233,110 @@
         <Group name="clock_widget" x="0" y="145" width="450" height="120">
             <Launch target="ALARM" />
             
-            <!-- We duplicate the DigitalClock to handle 24H vs 12H formats. -->
-            
             <!-- 24 HOUR FORMAT ([CONFIGURATION.clockFormat] == 0) -->
             <Group x="0" y="0" width="450" height="120">
                 <Transform target="alpha" value="[CONFIGURATION.clockFormat] == 0 ? 255 : 0" />
-                <DigitalClock x="0" y="0" width="450" height="120">
-                    <!-- Normal Weight ([CONFIGURATION.clockWeight] == 0) -->
-                    <TimeText format="HH:mm" x="0" y="0" width="450" height="120" align="CENTER">
-                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
-                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
-                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
-                    </TimeText>
-                    <!-- Bold Weight ([CONFIGURATION.clockWeight] == 1) -->
-                    <TimeText format="HH:mm" x="0" y="0" width="450" height="120" align="CENTER">
-                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
-                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
-                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
-                    </TimeText>
-                    <!-- Light Weight ([CONFIGURATION.clockWeight] == 2) -->
-                    <TimeText format="HH:mm" x="0" y="0" width="450" height="120" align="CENTER">
-                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
-                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
-                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
-                    </TimeText>
-                </DigitalClock>
+                
+                <!-- Normal Weight -->
+                <Group x="0" y="0" width="450" height="120">
+                    <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
+                    <DigitalClock x="0" y="0" width="450" height="120">
+                        <TimeText format="HH:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                            <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
+                        </TimeText>
+                    </DigitalClock>
+                </Group>
+                
+                <!-- Bold Weight -->
+                <Group x="0" y="0" width="450" height="120">
+                    <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
+                    <DigitalClock x="0" y="0" width="450" height="120">
+                        <TimeText format="HH:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                            <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
+                        </TimeText>
+                    </DigitalClock>
+                </Group>
+                
+                <!-- Light Weight -->
+                <Group x="0" y="0" width="450" height="120">
+                    <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
+                    <DigitalClock x="0" y="0" width="450" height="120">
+                        <TimeText format="HH:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                            <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
+                        </TimeText>
+                    </DigitalClock>
+                </Group>
             </Group>
 
             <!-- 12 HOUR FORMAT ([CONFIGURATION.clockFormat] == 1) -->
             <Group x="0" y="0" width="450" height="120">
                 <Transform target="alpha" value="[CONFIGURATION.clockFormat] == 1 ? 255 : 0" />
-                <DigitalClock x="0" y="0" width="450" height="120">
-                    <!-- Normal Weight ([CONFIGURATION.clockWeight] == 0) -->
-                    <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
-                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
-                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
-                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
-                    </TimeText>
-                    <!-- Bold Weight ([CONFIGURATION.clockWeight] == 1) -->
-                    <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
-                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
-                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
-                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
-                    </TimeText>
-                    <!-- Light Weight ([CONFIGURATION.clockWeight] == 2) -->
-                    <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
-                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
-                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
-                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
-                    </TimeText>
-                </DigitalClock>
+                
+                <!-- Normal Weight -->
+                <Group x="0" y="0" width="450" height="120">
+                    <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
+                    <DigitalClock x="0" y="0" width="450" height="120">
+                        <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                            <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
+                        </TimeText>
+                    </DigitalClock>
+                </Group>
+                
+                <!-- Bold Weight -->
+                <Group x="0" y="0" width="450" height="120">
+                    <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
+                    <DigitalClock x="0" y="0" width="450" height="120">
+                        <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                            <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
+                        </TimeText>
+                    </DigitalClock>
+                </Group>
+                
+                <!-- Light Weight -->
+                <Group x="0" y="0" width="450" height="120">
+                    <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
+                    <DigitalClock x="0" y="0" width="450" height="120">
+                        <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                            <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
+                        </TimeText>
+                    </DigitalClock>
+                </Group>
             </Group>
 
             <!-- Seconds Display (Toggled by showSeconds) -->
             <Group x="380" y="25" width="70" height="40">
                 <Transform target="alpha" value="[CONFIGURATION.showSeconds] ? 255 : 0" />
                 <Variant mode="AMBIENT" target="alpha" value="0" />
-                <DigitalClock x="0" y="0" width="70" height="40">
-                    <!-- Normal Weight ([CONFIGURATION.clockWeight] == 0) -->
-                    <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
-                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
-                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL" />
-                    </TimeText>
-                    <!-- Bold Weight ([CONFIGURATION.clockWeight] == 1) -->
-                    <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
-                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
-                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="BOLD" />
-                    </TimeText>
-                    <!-- Light Weight ([CONFIGURATION.clockWeight] == 2) -->
-                    <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
-                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
-                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT" />
-                    </TimeText>
-                </DigitalClock>
+                
+                <!-- Normal Weight -->
+                <Group x="0" y="0" width="70" height="40">
+                    <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
+                    <DigitalClock x="0" y="0" width="70" height="40">
+                        <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
+                            <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL" />
+                        </TimeText>
+                    </DigitalClock>
+                </Group>
+                
+                <!-- Bold Weight -->
+                <Group x="0" y="0" width="70" height="40">
+                    <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
+                    <DigitalClock x="0" y="0" width="70" height="40">
+                        <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
+                            <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="BOLD" />
+                        </TimeText>
+                    </DigitalClock>
+                </Group>
+                
+                <!-- Light Weight -->
+                <Group x="0" y="0" width="70" height="40">
+                    <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
+                    <DigitalClock x="0" y="0" width="70" height="40">
+                        <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
+                            <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT" />
+                        </TimeText>
+                    </DigitalClock>
+                </Group>
             </Group>
         </Group>
 

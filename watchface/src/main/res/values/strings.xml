@@ -34,4 +34,7 @@
     
     <string name="opt_solid_color">Solid Color</string>
     <string name="opt_vignette">Vignette</string>
+    <string name="opt_grid">Grid Pattern</string>
+    <string name="opt_circles">Circles Pattern</string>
+    <string name="opt_diagonals">Diagonals Pattern</string>
 </resources>
