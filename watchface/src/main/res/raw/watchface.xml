@@ -53,14 +53,9 @@
             <Complication type="SHORT_TEXT">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartText x="0" y="5" width="140" height="20">
+                <PartText x="0" y="15" width="140" height="30">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="16" color="#ffbbbbbb" weight="MEDIUM" />
-                    </Text>
-                </PartText>
-                <PartText x="0" y="25" width="140" height="35">
-                    <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="28" color="#ffffffff" weight="BOLD">
+                        <Font family="SYNC_TO_DEVICE" size="22" color="#ffffffff" weight="BOLD">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -94,12 +89,15 @@
             <Complication type="SHORT_TEXT">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="58" y="5" width="24" height="24" tintColor="#ffffffff">
+                <PartImage x="35" y="15" width="30" height="30">
                     <Image resource="[COMPLICATION.ICON]" />
                 </PartImage>
-                <PartText x="0" y="25" width="140" height="35">
-                    <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="28" color="#ffffffff" weight="BOLD">
+                <PartImage x="35" y="15" width="30" height="30" tintColor="#ffffffff">
+                    <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                </PartImage>
+                <PartText x="70" y="15" width="70" height="30">
+                    <Text align="START">
+                        <Font family="SYNC_TO_DEVICE" size="24" color="#ffffffff" weight="BOLD">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
