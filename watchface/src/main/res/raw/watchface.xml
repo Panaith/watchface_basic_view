@@ -1,22 +1,72 @@
-<WatchFace
-    height="450"
-    width="450">
-    <Metadata
-        key="CLOCK_TYPE"
-        value="DIGITAL" />
+<WatchFace height="450" width="450">
+    <Metadata key="CLOCK_TYPE" value="DIGITAL" />
 
     <UserConfigurations>
-        <ColorConfiguration id="timeColor" displayName="time_color" defaultValue="0">
-            <ColorOption id="0" displayName="color_white" colors="#ffffffff" />
-            <ColorOption id="1" displayName="color_orange" colors="#ffff7f00" />
-            <ColorOption id="2" displayName="color_blue" colors="#ff00aaff" />
-            <ColorOption id="3" displayName="color_green" colors="#ffaaee00" />
+        <!-- Booleans -->
+        <BooleanConfiguration id="showBattery" displayName="Show Battery" defaultValue="TRUE" />
+        <BooleanConfiguration id="showSeconds" displayName="Show Seconds" defaultValue="TRUE" />
+        
+        <!-- Colors -->
+        <ColorConfiguration id="bgColor" displayName="Background Color" defaultValue="0">
+            <ColorOption id="0" displayName="Black" colors="#ff000000" />
+            <ColorOption id="1" displayName="Dark Blue" colors="#ff000022" />
+            <ColorOption id="2" displayName="Dark Red" colors="#ff220000" />
+            <ColorOption id="3" displayName="Dark Green" colors="#ff002200" />
         </ColorConfiguration>
+        <ColorConfiguration id="batteryColor" displayName="Battery Color" defaultValue="0">
+            <ColorOption id="0" displayName="White" colors="#ffffffff" />
+            <ColorOption id="1" displayName="Green" colors="#ffaaee00" />
+            <ColorOption id="2" displayName="Orange" colors="#ffff7f00" />
+        </ColorConfiguration>
+        <ColorConfiguration id="fontsColor" displayName="Fonts Color" defaultValue="0">
+            <ColorOption id="0" displayName="White" colors="#ffffffff" />
+            <ColorOption id="1" displayName="Light Grey" colors="#ffdddddd" />
+            <ColorOption id="2" displayName="Cyan" colors="#ff00ffff" />
+        </ColorConfiguration>
+        <ColorConfiguration id="accentColor" displayName="Accent Color" defaultValue="0">
+            <ColorOption id="0" displayName="Green" colors="#ffaaee00" />
+            <ColorOption id="1" displayName="White" colors="#ffffffff" />
+            <ColorOption id="2" displayName="Orange" colors="#ffff7f00" />
+            <ColorOption id="3" displayName="Blue" colors="#ff00aaff" />
+        </ColorConfiguration>
+
+        <!-- Lists -->
+        <ListConfiguration id="clockWeight" displayName="Clock Font Weight" defaultValue="1">
+            <ListOption id="0" displayName="Normal" />
+            <ListOption id="1" displayName="Bold" />
+            <ListOption id="2" displayName="Light" />
+        </ListConfiguration>
+        <ListConfiguration id="clockFormat" displayName="Clock Format" defaultValue="0">
+            <ListOption id="0" displayName="24 Hour" />
+            <ListOption id="1" displayName="12 Hour" />
+        </ListConfiguration>
+        <ListConfiguration id="bgPattern" displayName="Background Style" defaultValue="0">
+            <ListOption id="0" displayName="Solid Color" />
+            <ListOption id="1" displayName="Vignette" />
+        </ListConfiguration>
     </UserConfigurations>
 
     <Scene>
+        <!-- Background Solid Color -->
+        <PartDraw x="0" y="0" width="450" height="450">
+            <Rect x="0" y="0" width="450" height="450">
+                <Fill color="[CONFIGURATION.bgColor]" />
+            </Rect>
+        </PartDraw>
+        
+        <!-- Background Vignette (Pattern 1) -->
+        <Group x="0" y="0" width="450" height="450">
+            <Transform target="alpha" value="[CONFIGURATION.bgPattern] == 1 ? 150 : 0" />
+            <PartDraw x="0" y="0" width="450" height="450">
+                <Rect x="0" y="0" width="450" height="450">
+                    <Stroke color="#ff000000" thickness="80" />
+                </Rect>
+            </PartDraw>
+        </Group>
+
         <!-- Top Battery Widget -->
         <Group name="battery_widget" x="125" y="25" width="200" height="50">
+            <Transform target="alpha" value="[CONFIGURATION.showBattery] ? 255 : 0" />
             <Variant mode="AMBIENT" target="alpha" value="0" />
             <Launch target="BATTERY_STATUS" />
             <!-- Background Bar -->
@@ -30,14 +80,14 @@
                 <Transform target="scaleX" value="[BATTERY_PERCENT] / 100" />
                 <PartDraw x="0" y="0" width="48" height="6">
                     <Line startX="0" startY="3" endX="48" endY="3">
-                        <Stroke color="[CONFIGURATION.timeColor]" thickness="6" cap="ROUND" />
+                        <Stroke color="[CONFIGURATION.batteryColor]" thickness="6" cap="ROUND" />
                     </Line>
                 </PartDraw>
             </Group>
             <!-- Battery Percentage -->
             <PartText x="0" y="15" width="200" height="35">
                 <Text align="CENTER">
-                    <Font family="SYNC_TO_DEVICE" size="20" color="#ffdddddd" weight="BOLD">
+                    <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.fontsColor]" weight="BOLD">
                         <Template>
                             <![CDATA[%s%%]]><Parameter expression="[BATTERY_PERCENT]" />
                         </Template>
@@ -55,7 +105,7 @@
                     <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartText x="0" y="15" width="170" height="30">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="26" color="#ffffffff" weight="BOLD">
+                        <Font family="SYNC_TO_DEVICE" size="26" color="[CONFIGURATION.fontsColor]" weight="BOLD">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -65,19 +115,19 @@
             <Complication type="SMALL_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="49" y="9" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+                <PartImage x="64" y="9" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
             <Complication type="MONOCHROMATIC_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="49" y="9" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="64" y="9" width="42" height="42" tintColor="[CONFIGURATION.fontsColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="49" y="9" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
+                <PartImage x="64" y="9" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
         </ComplicationSlot>
@@ -92,12 +142,12 @@
                 <PartImage x="45" y="15" width="30" height="30">
                     <Image resource="[COMPLICATION.ICON]" />
                 </PartImage>
-                <PartImage x="45" y="15" width="30" height="30" tintColor="#ffffffff">
+                <PartImage x="45" y="15" width="30" height="30" tintColor="[CONFIGURATION.fontsColor]">
                     <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
                 </PartImage>
                 <PartText x="85" y="15" width="85" height="30">
                     <Text align="START">
-                        <Font family="SYNC_TO_DEVICE" size="26" color="#ffffffff" weight="BOLD">
+                        <Font family="SYNC_TO_DEVICE" size="26" color="[CONFIGURATION.fontsColor]" weight="BOLD">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -107,19 +157,19 @@
             <Complication type="SMALL_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="49" y="9" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
+                <PartImage x="64" y="9" width="42" height="42"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
             <Complication type="MONOCHROMATIC_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="49" y="9" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="64" y="9" width="42" height="42" tintColor="[CONFIGURATION.fontsColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="49" y="9" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
+                <PartImage x="64" y="9" width="42" height="42"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
         </ComplicationSlot>
@@ -127,22 +177,81 @@
         <!-- Row 2: Clock Display -->
         <Group name="clock_widget" x="0" y="145" width="450" height="120">
             <Launch target="ALARM" />
-            <DigitalClock x="0" y="0" width="450" height="120">
-                <!-- Interactive Mode -->
-                <TimeText format="hh:mm" x="0" y="0" width="450" height="120" align="CENTER">
-                    <Variant mode="AMBIENT" target="alpha" value="0" />
-                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
-                </TimeText>
-                <TimeText format="ss" x="380" y="25" width="70" height="40" align="START">
-                    <Variant mode="AMBIENT" target="alpha" value="0" />
-                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="26" weight="BOLD" />
-                </TimeText>
-                <!-- Ambient Mode -->
-                <TimeText format="hh:mm" alpha="0" x="0" y="0" width="450" height="120" align="CENTER">
-                    <Variant mode="AMBIENT" target="alpha" value="255" />
-                    <Font color="[CONFIGURATION.timeColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
-                </TimeText>
-            </DigitalClock>
+            
+            <!-- We duplicate the DigitalClock to handle 24H vs 12H formats. -->
+            
+            <!-- 24 HOUR FORMAT ([CONFIGURATION.clockFormat] == 0) -->
+            <Group x="0" y="0" width="450" height="120">
+                <Transform target="alpha" value="[CONFIGURATION.clockFormat] == 0 ? 255 : 0" />
+                <DigitalClock x="0" y="0" width="450" height="120">
+                    <!-- Normal Weight ([CONFIGURATION.clockWeight] == 0) -->
+                    <TimeText format="HH:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
+                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
+                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
+                    </TimeText>
+                    <!-- Bold Weight ([CONFIGURATION.clockWeight] == 1) -->
+                    <TimeText format="HH:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
+                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
+                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
+                    </TimeText>
+                    <!-- Light Weight ([CONFIGURATION.clockWeight] == 2) -->
+                    <TimeText format="HH:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
+                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
+                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
+                    </TimeText>
+                </DigitalClock>
+            </Group>
+
+            <!-- 12 HOUR FORMAT ([CONFIGURATION.clockFormat] == 1) -->
+            <Group x="0" y="0" width="450" height="120">
+                <Transform target="alpha" value="[CONFIGURATION.clockFormat] == 1 ? 255 : 0" />
+                <DigitalClock x="0" y="0" width="450" height="120">
+                    <!-- Normal Weight ([CONFIGURATION.clockWeight] == 0) -->
+                    <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
+                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
+                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
+                    </TimeText>
+                    <!-- Bold Weight ([CONFIGURATION.clockWeight] == 1) -->
+                    <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
+                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
+                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
+                    </TimeText>
+                    <!-- Light Weight ([CONFIGURATION.clockWeight] == 2) -->
+                    <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
+                        <Variant mode="AMBIENT" target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
+                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
+                    </TimeText>
+                </DigitalClock>
+            </Group>
+
+            <!-- Seconds Display (Toggled by showSeconds) -->
+            <Group x="380" y="25" width="70" height="40">
+                <Transform target="alpha" value="[CONFIGURATION.showSeconds] ? 255 : 0" />
+                <Variant mode="AMBIENT" target="alpha" value="0" />
+                <DigitalClock x="0" y="0" width="70" height="40">
+                    <!-- Normal Weight ([CONFIGURATION.clockWeight] == 0) -->
+                    <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
+                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL" />
+                    </TimeText>
+                    <!-- Bold Weight ([CONFIGURATION.clockWeight] == 1) -->
+                    <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
+                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="BOLD" />
+                    </TimeText>
+                    <!-- Light Weight ([CONFIGURATION.clockWeight] == 2) -->
+                    <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
+                        <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT" />
+                    </TimeText>
+                </DigitalClock>
+            </Group>
         </Group>
 
         <!-- Row 3: Next Day Event Complication -->
@@ -154,14 +263,14 @@
                     <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartText x="0" y="0" width="370" height="18">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="14" color="#ffaaaaaa" weight="NORMAL">
+                        <Font family="SYNC_TO_DEVICE" size="14" color="[CONFIGURATION.fontsColor]" weight="NORMAL">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TITLE]" /></Template>
                         </Font>
                     </Text>
                 </PartText>
                 <PartText x="0" y="18" width="370" height="27">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="20" color="#ffffffff" weight="BOLD">
+                        <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.fontsColor]" weight="BOLD">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -173,14 +282,14 @@
                     <Variant mode="AMBIENT" target="alpha" value="0" />
                 <PartText x="0" y="0" width="370" height="18">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="14" color="#ffaaaaaa" weight="NORMAL">
+                        <Font family="SYNC_TO_DEVICE" size="14" color="[CONFIGURATION.fontsColor]" weight="NORMAL">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TITLE]" /></Template>
                         </Font>
                     </Text>
                 </PartText>
                 <PartText x="0" y="18" width="370" height="27">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="20" color="#ffffffff" weight="BOLD">
+                        <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.fontsColor]" weight="BOLD">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -196,7 +305,7 @@
             <Complication type="MONOCHROMATIC_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="164" y="1" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="164" y="1" width="42" height="42" tintColor="[CONFIGURATION.fontsColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
             <Complication type="PHOTO_IMAGE">
@@ -214,7 +323,7 @@
             <Complication type="MONOCHROMATIC_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="0" y="0" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="0" y="0" width="42" height="42" tintColor="[CONFIGURATION.fontsColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
@@ -237,7 +346,7 @@
             <Complication type="MONOCHROMATIC_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="0" y="0" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="0" y="0" width="42" height="42" tintColor="[CONFIGURATION.fontsColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
@@ -260,7 +369,7 @@
             <Complication type="MONOCHROMATIC_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="0" y="0" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="0" y="0" width="42" height="42" tintColor="[CONFIGURATION.fontsColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
@@ -283,7 +392,7 @@
             <Complication type="MONOCHROMATIC_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="0" y="0" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="0" y="0" width="42" height="42" tintColor="[CONFIGURATION.fontsColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
@@ -306,7 +415,7 @@
             <Complication type="MONOCHROMATIC_IMAGE">
                 <Group x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                <PartImage x="0" y="0" width="42" height="42" tintColor="#ffffffff"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="0" y="0" width="42" height="42" tintColor="[CONFIGURATION.fontsColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
                 </Group>
             </Complication>
             <Complication type="SMALL_IMAGE">
@@ -329,7 +438,7 @@
             <Launch target="com.google.android.contacts" />
             <PartText x="0" y="0" width="450" height="35">
                 <Text align="CENTER">
-                    <Font family="corinthia" size="28" color="#ffcccccc">PanSar</Font>
+                    <Font family="corinthia" size="28" color="[CONFIGURATION.fontsColor]">PanSar</Font>
                 </Text>
             </PartText>
         </Group>
