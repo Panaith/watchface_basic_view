@@ -87,7 +87,7 @@ Canvas dimensions: **450 x 450** circular display.
 - Supports 24-hour (`HH:mm`) and 12-hour (`hh:mm`) time via `[CONFIGURATION.clockFormat]`.
 - Supports 3 font weights (`NORMAL`, `BOLD`, `LIGHT`) via `[CONFIGURATION.clockWeight]`.
 - Bound to `[CONFIGURATION.accentColor]`.
-- **Seconds Display (x=380, y=25 relative to clock widget):**
+- **Seconds Display (x=380, y=15 relative to clock widget):**
   - Toggled by `[CONFIGURATION.showSeconds]`.
   - Hidden in ambient mode to conserve battery.
 - **AM/PM Display (x=380, y=65 relative to clock widget):**

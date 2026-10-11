@@ -304,7 +304,7 @@
             </Group>
 
             <!-- Seconds Display (Toggled by showSeconds) -->
-            <Group x="380" y="25" width="70" height="40">
+            <Group x="380" y="15" width="70" height="40">
                 <Transform target="alpha" value="[CONFIGURATION.showSeconds] ? 255 : 0" />
                 <Variant mode="AMBIENT" target="alpha" value="0" />
                 
