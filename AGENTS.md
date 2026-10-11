@@ -165,6 +165,14 @@ All configuration options are defined in `watchface.xml` and mapped to `strings.
    - Ambient mode on Wear OS OLED panels requires minimizing lit pixels to prevent burn-in and save power.
    - Add `<Variant mode="AMBIENT" target="alpha" value="0" />` to non-essential elements (seconds, battery, logo, background patterns, shortcut slots).
 
+6. **TimeText Formatting & 12h / 24h Notation (`hourFormat`):**
+   - In Watch Face Format, `<TimeText>` does **not** support Java-style `HH:mm`. Using `format="HH:mm"` is invalid syntax in WFF and causes the clock element to fail silently and disappear.
+   - Always use `format="hh:mm"` (use two `h` characters to enforce leading zero padding, e.g. `01` to `12` or `01` to `23`).
+   - To control 12-hour vs 24-hour notation, use the `hourFormat` attribute on `<TimeText>`:
+     - `hourFormat="24"` forces 24-hour format.
+     - `hourFormat="12"` forces 12-hour format.
+     - `hourFormat="SYNC_TO_DEVICE"` (default when omitted) follows the device system setting.
+
 ---
 
 ## 7. Build, Test & Deployment Guide
