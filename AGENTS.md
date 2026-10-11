@@ -84,7 +84,7 @@ Canvas dimensions: **450 x 450** circular display.
 
 ### D. Row 2: Digital Clock (x=0, y=145, w=450, h=120)
 - Launches `ALARM` when tapped.
-- Supports 24-hour (`HH:mm`) and 12-hour (`h:mm`) time via `[CONFIGURATION.clockFormat]`.
+- Supports 24-hour (`HH:mm`) and 12-hour (`hh:mm`) time via `[CONFIGURATION.clockFormat]`.
 - Supports 3 font weights (`NORMAL`, `BOLD`, `LIGHT`) via `[CONFIGURATION.clockWeight]`.
 - Bound to `[CONFIGURATION.accentColor]`.
 - **Seconds Display (x=380, y=25 relative to clock widget):**
@@ -126,7 +126,7 @@ All configuration options are defined in `watchface.xml` and mapped to `strings.
 | `fontsColor` | Color | `0` (White), `1` (Light Grey), `2` (Cyan) | `0` | Color for complications and general text |
 | `accentColor` | Color | `0` (Green), `1` (White), `2` (Orange), `3` (Blue) | `0` | Primary digital clock color |
 | `clockWeight` | List | `0` (Normal), `1` (Bold), `2` (Light) | `1` (Bold) | Font weight for the digital clock |
-| `clockFormat` | List | `0` (24 Hour `HH:mm`), `1` (12 Hour `h:mm`) | `0` (24 Hour) | Time format |
+| `clockFormat` | List | `0` (24 Hour `HH:mm`), `1` (12 Hour `hh:mm`) | `0` (24 Hour) | Time format |
 | `bgPattern` | List | `0` (Solid), `1` (Vignette), `2` (Grid), `3` (Circles), `4` (Diagonals) | `0` (Solid) | Background graphic texture |
 
 ---

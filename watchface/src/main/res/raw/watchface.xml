@@ -276,7 +276,7 @@
                 <Group x="0" y="0" width="450" height="120">
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="450" height="120">
-                        <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                        <TimeText format="hh:mm" x="0" y="0" width="450" height="120" align="CENTER">
                             <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
                         </TimeText>
                     </DigitalClock>
@@ -286,7 +286,7 @@
                 <Group x="0" y="0" width="450" height="120">
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="450" height="120">
-                        <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                        <TimeText format="hh:mm" x="0" y="0" width="450" height="120" align="CENTER">
                             <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
                         </TimeText>
                     </DigitalClock>
@@ -296,7 +296,7 @@
                 <Group x="0" y="0" width="450" height="120">
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="450" height="120">
-                        <TimeText format="h:mm" x="0" y="0" width="450" height="120" align="CENTER">
+                        <TimeText format="hh:mm" x="0" y="0" width="450" height="120" align="CENTER">
                             <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
                         </TimeText>
                     </DigitalClock>
