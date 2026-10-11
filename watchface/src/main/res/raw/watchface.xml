@@ -338,6 +338,76 @@
                     </DigitalClock>
                 </Group>
             </Group>
+
+            <!-- AM/PM Indicator (Shown only in 12-hour format, below seconds) -->
+            <Group name="ampm_widget" x="380" y="65" width="70" height="40">
+                <Transform target="alpha" value="[CONFIGURATION.clockFormat] == 1 ? 255 : 0" />
+                <Variant mode="AMBIENT" target="alpha" value="0" />
+                
+                <!-- AM ([AMPM_STATE] == 0) -->
+                <Group x="0" y="0" width="70" height="40">
+                    <Transform target="alpha" value="[AMPM_STATE] == 0 ? 255 : 0" />
+                    <!-- Normal Weight -->
+                    <Group x="0" y="0" width="70" height="40">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
+                        <PartText x="0" y="0" width="70" height="40">
+                            <Text align="START">
+                                <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL">AM</Font>
+                            </Text>
+                        </PartText>
+                    </Group>
+                    <!-- Bold Weight -->
+                    <Group x="0" y="0" width="70" height="40">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
+                        <PartText x="0" y="0" width="70" height="40">
+                            <Text align="START">
+                                <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="BOLD">AM</Font>
+                            </Text>
+                        </PartText>
+                    </Group>
+                    <!-- Light Weight -->
+                    <Group x="0" y="0" width="70" height="40">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
+                        <PartText x="0" y="0" width="70" height="40">
+                            <Text align="START">
+                                <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT">AM</Font>
+                            </Text>
+                        </PartText>
+                    </Group>
+                </Group>
+
+                <!-- PM ([AMPM_STATE] == 1) -->
+                <Group x="0" y="0" width="70" height="40">
+                    <Transform target="alpha" value="[AMPM_STATE] == 1 ? 255 : 0" />
+                    <!-- Normal Weight -->
+                    <Group x="0" y="0" width="70" height="40">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
+                        <PartText x="0" y="0" width="70" height="40">
+                            <Text align="START">
+                                <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL">PM</Font>
+                            </Text>
+                        </PartText>
+                    </Group>
+                    <!-- Bold Weight -->
+                    <Group x="0" y="0" width="70" height="40">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
+                        <PartText x="0" y="0" width="70" height="40">
+                            <Text align="START">
+                                <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="BOLD">PM</Font>
+                            </Text>
+                        </PartText>
+                    </Group>
+                    <!-- Light Weight -->
+                    <Group x="0" y="0" width="70" height="40">
+                        <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
+                        <PartText x="0" y="0" width="70" height="40">
+                            <Text align="START">
+                                <Font color="[CONFIGURATION.accentColor]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT">PM</Font>
+                            </Text>
+                        </PartText>
+                    </Group>
+                </Group>
+            </Group>
         </Group>
 
         <!-- Row 3: Next Day Event Complication -->

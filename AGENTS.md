@@ -90,6 +90,10 @@ Canvas dimensions: **450 x 450** circular display.
 - **Seconds Display (x=380, y=25 relative to clock widget):**
   - Toggled by `[CONFIGURATION.showSeconds]`.
   - Hidden in ambient mode to conserve battery.
+- **AM/PM Display (x=380, y=65 relative to clock widget):**
+  - Displayed only in 12-hour format, directly below seconds in the same column.
+  - Follows `[CONFIGURATION.clockWeight]` font weight and matches seconds font size (26).
+  - Evaluated via `[AMPM_STATE]` (`0` for AM, `1` for PM) and hidden in ambient mode.
 
 ### E. Row 3: Next Event Complication (x=40, y=260, w=370, h=45)
 - **Slot 3:**
