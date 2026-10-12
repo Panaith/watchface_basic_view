@@ -153,21 +153,40 @@
             <!-- Battery Bar (Toggled by showBattery) -->
             <Group name="battery_bar_group" x="0" y="0" width="200" height="50">
                 <Transform target="alpha" value="[CONFIGURATION.showBattery] ? 255 : 0" />
-                <!-- Background Bar -->
-                <PartDraw x="76" y="5" width="48" height="6" name="battery_bg_bar">
-                    <Line startX="0" startY="3" endX="48" endY="3">
-                        <Stroke color="#ff333333" thickness="6" cap="ROUND" />
-                    </Line>
-                </PartDraw>
-                <!-- Foreground Progress Bar -->
-                <Group name="battery_progress" x="76" y="5" width="48" height="6" pivotX="0" pivotY="0.5">
-                    <Transform target="scaleX" value="[BATTERY_PERCENT] / 100" />
-                    <PartDraw x="0" y="0" width="48" height="6" name="battery_fg_bar">
-                        <Line startX="0" startY="3" endX="48" endY="3">
-                            <Stroke color="[CONFIGURATION.themeColor.1]" thickness="6" cap="ROUND" />
-                        </Line>
-                    </PartDraw>
-                </Group>
+                <!-- Low Battery (< 10%) -->
+                <Condition>
+                    <Expressions>
+                        <Expression name="isLowBattery"><![CDATA[[BATTERY_PERCENT] >= 0 && [BATTERY_PERCENT] <= 9]]></Expression>
+                    </Expressions>
+                    <Compare expression="isLowBattery">
+                        <PartDraw x="76" y="5" width="48" height="6" name="battery_bar_low">
+                            <Line startX="0" startY="3" endX="48" endY="3">
+                                <Stroke color="#80ff0101" thickness="6" cap="ROUND" />
+                            </Line>
+                            <Line startX="0" startY="3" endX="0" endY="3">
+                                <Transform target="endX" value="(((clamp([BATTERY_PERCENT], 0, 100)) / 100) * 48)" />
+                                <Stroke color="#ffff0101" thickness="6" cap="ROUND" />
+                            </Line>
+                        </PartDraw>
+                    </Compare>
+                </Condition>
+                <!-- Normal Battery (>= 10%) -->
+                <Condition>
+                    <Expressions>
+                        <Expression name="isNormalBattery"><![CDATA[[BATTERY_PERCENT] >= 10 && [BATTERY_PERCENT] <= 100]]></Expression>
+                    </Expressions>
+                    <Compare expression="isNormalBattery">
+                        <PartDraw x="76" y="5" width="48" height="6" name="battery_bar_normal" tintColor="[CONFIGURATION.themeColor.1]">
+                            <Line startX="0" startY="3" endX="48" endY="3">
+                                <Stroke color="#80ffffff" thickness="6" cap="ROUND" />
+                            </Line>
+                            <Line startX="0" startY="3" endX="0" endY="3">
+                                <Transform target="endX" value="(((clamp([BATTERY_PERCENT], 0, 100)) / 100) * 48)" />
+                                <Stroke color="#ffffffff" thickness="6" cap="ROUND" />
+                            </Line>
+                        </PartDraw>
+                    </Compare>
+                </Condition>
             </Group>
 
             <!-- Battery Percentage -->
@@ -572,5 +591,12 @@
                 </Text>
             </PartText>
         </Group>
+        <!-- Ambient Dimming Overlay -->
+        <PartDraw x="0" y="0" width="450" height="450" name="ambient_dimming" alpha="0">
+            <Variant mode="AMBIENT" target="alpha" value="255" />
+            <Rectangle x="0" y="0" width="450" height="450">
+                <Fill color="#85000000" />
+            </Rectangle>
+        </PartDraw>
     </Scene>
 </WatchFace>
