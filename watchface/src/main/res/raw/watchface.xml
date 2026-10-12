@@ -43,9 +43,6 @@
             <Flavor id="1" displayName="flavor_default" screenReaderText="flavor_default">
                 <Configuration id="themeColor" optionId="0" />
                 <Configuration id="bgImage" optionId="0" />
-                <ComplicationSlot slotId="1">
-                    <DefaultProviderPolicy defaultSystemProvider="DAY_OF_WEEK_AND_DATE" defaultSystemProviderType="SHORT_TEXT" />
-                </ComplicationSlot>
                 <ComplicationSlot slotId="2">
                     <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SHORT_TEXT" />
                 </ComplicationSlot>
@@ -71,9 +68,6 @@
             <Flavor id="2" displayName="flavor_variant" screenReaderText="flavor_variant">
                 <Configuration id="themeColor" optionId="7" />
                 <Configuration id="bgImage" optionId="7" />
-                <ComplicationSlot slotId="1">
-                    <DefaultProviderPolicy defaultSystemProvider="DAY_OF_WEEK_AND_DATE" defaultSystemProviderType="SHORT_TEXT" />
-                </ComplicationSlot>
                 <ComplicationSlot slotId="2">
                     <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SHORT_TEXT" />
                 </ComplicationSlot>
@@ -199,31 +193,14 @@
             </PartText>
         </Group>
 
-        <!-- Row 1: Left Complication (Date - underlying ComplicationSlot for app launch) -->
-        <ComplicationSlot slotId="1" displayName="Date" isCustomizable="TRUE" supportedTypes="SHORT_TEXT SMALL_IMAGE MONOCHROMATIC_IMAGE PHOTO_IMAGE EMPTY" x="40" y="85" width="170" height="60" name="Slot1_Date" alpha="0">
-            <Variant mode="AMBIENT" target="alpha" value="0" />
-            <DefaultProviderPolicy defaultSystemProvider="DAY_OF_WEEK_AND_DATE" defaultSystemProviderType="SHORT_TEXT" />
-            <BoundingBox x="0" y="0" width="170" height="60" />
-            <Complication type="SHORT_TEXT">
-                <PartText x="0" y="15" width="170" height="30" name="Slot1_ShortText">
-                    <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="26" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
-                            <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
-                        </Font>
-                    </Text>
-                </PartText>
-            </Complication>
-            <Complication type="EMPTY" />
-        </ComplicationSlot>
-
-        <!-- Static Date Display (like in watchface_total_view) -->
-        <PartText x="40" y="85" width="170" height="60" name="Date_Display" alpha="255">
+        <!-- Static Date Display (matching watchface_total_view) -->
+        <PartText x="30" y="85" width="190" height="60" name="Date_Display" alpha="255">
             <Launch target="CALENDAR" />
             <Localization calendar="GREGORIAN" />
             <Variant mode="AMBIENT" target="alpha" value="0" />
             <Text align="CENTER" ellipsis="TRUE">
-                <Font family="SYNC_TO_DEVICE" size="24" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
-                    <Template><![CDATA[%s, %s %s]]><Parameter expression="[DAY_OF_WEEK_S]" /><Parameter expression="[DAY]" /><Parameter expression="[MONTH_S]" /></Template>
+                <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
+                    <Template><![CDATA[%s, %s %s %s]]><Parameter expression="[DAY_OF_WEEK_S]" /><Parameter expression="[DAY]" /><Parameter expression="[MONTH_S]" /><Parameter expression="[YEAR]" /></Template>
                 </Font>
             </Text>
         </PartText>
