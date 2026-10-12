@@ -3,120 +3,146 @@
     <Metadata key="CLOCK_TYPE" value="DIGITAL" />
 
     <UserConfigurations>
-        <!-- Booleans -->
-        <BooleanConfiguration id="showBattery" displayName="config_show_battery_bar" defaultValue="TRUE" />
-        <BooleanConfiguration id="showSeconds" displayName="config_clock_show_seconds" defaultValue="TRUE" />
-        
-        <!-- Colors -->
-        <ColorConfiguration id="bgColor" displayName="config_bg_color" defaultValue="0">
-            <ColorOption id="0" displayName="opt_bg_color_black" colors="#ff000000" />
-            <ColorOption id="1" displayName="opt_bg_color_dark_blue" colors="#ff000022" />
-            <ColorOption id="2" displayName="opt_bg_color_dark_red" colors="#ff220000" />
-            <ColorOption id="3" displayName="opt_bg_color_dark_green" colors="#ff002200" />
+        <ColorConfiguration id="themeColor" defaultValue="0" displayName="config_theme_color" screenReaderText="config_theme_color">
+            <ColorOption id="0" colors="#ff000000 #ffffffff #ffffffff" displayName="opt_bg_color_white" screenReaderText="opt_bg_color_white" />
+            <ColorOption id="1" colors="#ff000000 #ff33ccff #ff33ccff" displayName="opt_bg_color_cyan" screenReaderText="opt_bg_color_cyan" />
+            <ColorOption id="2" colors="#ff000000 #fff08000 #fff08000" displayName="opt_bg_color_orange" screenReaderText="opt_bg_color_orange" />
+            <ColorOption id="3" colors="#ff000000 #ff00ff00 #ff00ff00" displayName="opt_bg_color_green" screenReaderText="opt_bg_color_green" />
+            <ColorOption id="4" colors="#ff000000 #ff8a2be2 #ff8a2be2" displayName="opt_bg_color_blue" screenReaderText="opt_bg_color_blue" />
+            <ColorOption id="5" colors="#ff000000 #ffff2400 #ffff2400" displayName="opt_bg_color_dark_red" screenReaderText="opt_bg_color_dark_red" />
+            <ColorOption id="6" colors="#ff000000 #ff33ccff #ffffffff" displayName="opt_bg_color_cyan" screenReaderText="opt_bg_color_cyan" />
+            <ColorOption id="7" colors="#ff000000 #fff08000 #ffffffff" displayName="opt_bg_color_orange" screenReaderText="opt_bg_color_orange" />
+            <ColorOption id="8" colors="#ff000000 #ff00ff00 #ffffffff" displayName="opt_bg_color_green" screenReaderText="opt_bg_color_green" />
+            <ColorOption id="9" colors="#ff000000 #ff8a2be2 #ffffffff" displayName="opt_bg_color_blue" screenReaderText="opt_bg_color_blue" />
+            <ColorOption id="10" colors="#ff000000 #ffff2400 #ffffffff" displayName="opt_bg_color_dark_red" screenReaderText="opt_bg_color_dark_red" />
         </ColorConfiguration>
-        <ColorConfiguration id="themeColor" displayName="config_theme_color" defaultValue="0">
-            <ColorOption id="0" displayName="opt_bg_color_white" colors="#ffffffff" />
-            <ColorOption id="1" displayName="opt_bg_color_light_grey" colors="#ffdddddd" />
-            <ColorOption id="2" displayName="opt_bg_color_cyan" colors="#ff00ffff" />
-            <ColorOption id="3" displayName="opt_bg_color_green" colors="#ffaaee00" />
-            <ColorOption id="4" displayName="opt_bg_color_orange" colors="#ffff7f00" />
-            <ColorOption id="5" displayName="opt_bg_color_blue" colors="#ff00aaff" />
-        </ColorConfiguration>
-        <ColorConfiguration id="accentColor" displayName="config_accent_color" defaultValue="0">
-            <ColorOption id="0" displayName="opt_bg_color_green" colors="#ffaaee00" />
-            <ColorOption id="1" displayName="opt_bg_color_white" colors="#ffffffff" />
-            <ColorOption id="2" displayName="opt_bg_color_orange" colors="#ffff7f00" />
-            <ColorOption id="3" displayName="opt_bg_color_blue" colors="#ff00aaff" />
-            <ColorOption id="4" displayName="opt_bg_color_cyan" colors="#ff00ffff" />
-        </ColorConfiguration>
-
-        <!-- Lists -->
-        <ListConfiguration id="clockWeight" displayName="config_clock_weight" defaultValue="0">
-            <ListOption id="0" displayName="opt_clock_weight_normal" />
-            <ListOption id="1" displayName="opt_clock_weight_bold" />
-            <ListOption id="2" displayName="opt_clock_weight_light" />
+        <ListConfiguration id="bgImage" displayName="config_bg_image" screenReaderText="config_bg_image" defaultValue="0">
+            <ListOption id="0" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
+            <ListOption id="1" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
+            <ListOption id="2" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
+            <ListOption id="3" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
+            <ListOption id="4" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
+            <ListOption id="5" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
+            <ListOption id="6" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
+            <ListOption id="7" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
+            <ListOption id="8" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
+            <ListOption id="9" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
         </ListConfiguration>
-        <ListConfiguration id="clockFormat" displayName="config_clock_format" defaultValue="0">
-            <ListOption id="0" displayName="opt_clock_format_24_hour" />
-            <ListOption id="1" displayName="opt_clock_format_12_hour" />
+        <ListConfiguration id="clockFormat" displayName="config_clock_format" screenReaderText="config_clock_format" defaultValue="0">
+            <ListOption id="0" displayName="opt_clock_format_24_hour" screenReaderText="opt_clock_format_24_hour" />
+            <ListOption id="1" displayName="opt_clock_format_12_hour" screenReaderText="opt_clock_format_12_hour" />
         </ListConfiguration>
-        <ListConfiguration id="bgPattern" displayName="config_bg_pattern" defaultValue="0">
-            <ListOption id="0" displayName="opt_solid_color" />
-            <ListOption id="1" displayName="opt_bg_pattern_vignette" />
-            <ListOption id="2" displayName="opt_bg_pattern_grid" />
-            <ListOption id="3" displayName="opt_bg_pattern_circles" />
-            <ListOption id="4" displayName="opt_bg_pattern_diagonals" />
+        <ListConfiguration id="clockWeight" displayName="config_clock_weight" screenReaderText="config_clock_weight" defaultValue="0">
+            <ListOption id="0" displayName="opt_clock_weight_normal" screenReaderText="opt_clock_weight_normal" />
+            <ListOption id="1" displayName="opt_clock_weight_bold" screenReaderText="opt_clock_weight_bold" />
+            <ListOption id="2" displayName="opt_clock_weight_light" screenReaderText="opt_clock_weight_light" />
         </ListConfiguration>
+        <BooleanConfiguration id="showSeconds" displayName="config_clock_show_seconds" screenReaderText="config_clock_show_seconds" defaultValue="TRUE" />
+        <BooleanConfiguration id="showBattery" displayName="config_show_battery_bar" screenReaderText="config_show_battery_bar" defaultValue="TRUE" />
+        <Flavors defaultValue="1">
+            <Flavor id="1" displayName="flavor_default" screenReaderText="flavor_default">
+                <Configuration id="themeColor" optionId="0" />
+                <Configuration id="bgImage" optionId="0" />
+                <ComplicationSlot slotId="1">
+                    <DefaultProviderPolicy defaultSystemProvider="DAY_OF_WEEK_AND_DATE" defaultSystemProviderType="SHORT_TEXT" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="2">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SHORT_TEXT" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="3">
+                    <DefaultProviderPolicy defaultSystemProvider="NEXT_EVENT" defaultSystemProviderType="LONG_TEXT" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="4">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="5">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="6">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="7">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="8">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+                </ComplicationSlot>
+            </Flavor>
+            <Flavor id="2" displayName="flavor_variant" screenReaderText="flavor_variant">
+                <Configuration id="themeColor" optionId="7" />
+                <Configuration id="bgImage" optionId="7" />
+                <ComplicationSlot slotId="1">
+                    <DefaultProviderPolicy defaultSystemProvider="DAY_OF_WEEK_AND_DATE" defaultSystemProviderType="SHORT_TEXT" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="2">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SHORT_TEXT" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="3">
+                    <DefaultProviderPolicy defaultSystemProvider="NEXT_EVENT" defaultSystemProviderType="LONG_TEXT" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="4">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="5">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="6">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="7">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+                </ComplicationSlot>
+                <ComplicationSlot slotId="8">
+                    <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
+                </ComplicationSlot>
+            </Flavor>
+        </Flavors>
     </UserConfigurations>
 
-    <Scene>
-        <!-- Background Solid Color -->
-        <PartDraw x="0" y="0" width="450" height="450" name="bg_solid">
+    <Scene backgroundColor="#ff000000">
+        <!-- Background Solid Tint -->
+        <PartDraw x="0" y="0" width="450" height="450" name="bg_solid" tintColor="[CONFIGURATION.themeColor.0]" alpha="255">
+            <Variant mode="AMBIENT" target="alpha" value="0" />
             <Rectangle x="0" y="0" width="450" height="450">
-                <Fill color="[CONFIGURATION.bgColor]" />
+                <Fill color="#ff888888" />
             </Rectangle>
         </PartDraw>
         
-        <!-- Background Vignette (Pattern 1) -->
-        <Group name="bg_vignette_group" x="0" y="0" width="450" height="450">
-            <Transform target="alpha" value="[CONFIGURATION.bgPattern] == 1 ? 150 : 0" />
-            <PartDraw x="0" y="0" width="450" height="450" name="bg_vignette_draw">
-                <Rectangle x="0" y="0" width="450" height="450">
-                    <Stroke color="#ff000000" thickness="80" />
-                </Rectangle>
-            </PartDraw>
-        </Group>
-
-        <!-- Grid Pattern (Pattern 2) -->
-        <Group name="bg_grid_group" x="0" y="0" width="450" height="450">
-            <Transform target="alpha" value="[CONFIGURATION.bgPattern] == 2 ? 30 : 0" />
-            <PartDraw x="0" y="0" width="450" height="450" name="bg_grid_draw">
-                <Line startX="50" startY="0" endX="50" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="100" startY="0" endX="100" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="150" startY="0" endX="150" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="200" startY="0" endX="200" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="250" startY="0" endX="250" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="300" startY="0" endX="300" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="350" startY="0" endX="350" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="400" startY="0" endX="400" endY="450"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-
-                <Line startX="0" startY="50" endX="450" endY="50"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="0" startY="100" endX="450" endY="100"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="0" startY="150" endX="450" endY="150"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="0" startY="200" endX="450" endY="200"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="0" startY="250" endX="450" endY="250"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="0" startY="300" endX="450" endY="300"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="0" startY="350" endX="450" endY="350"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-                <Line startX="0" startY="400" endX="450" endY="400"> <Stroke color="#ffffffff" thickness="1"/> </Line>
-            </PartDraw>
-        </Group>
-
-        <!-- Circles Pattern (Pattern 3) -->
-        <Group name="bg_circles_group" x="0" y="0" width="450" height="450">
-            <Transform target="alpha" value="[CONFIGURATION.bgPattern] == 3 ? 20 : 0" />
-            <PartDraw x="0" y="0" width="450" height="450" name="bg_circles_draw">
-                <Ellipse x="175" y="175" width="100" height="100"> <Stroke color="#ffffffff" thickness="2"/> </Ellipse>
-                <Ellipse x="125" y="125" width="200" height="200"> <Stroke color="#ffffffff" thickness="2"/> </Ellipse>
-                <Ellipse x="75" y="75" width="300" height="300"> <Stroke color="#ffffffff" thickness="2"/> </Ellipse>
-                <Ellipse x="25" y="25" width="400" height="400"> <Stroke color="#ffffffff" thickness="2"/> </Ellipse>
-            </PartDraw>
-        </Group>
-
-        <!-- Diagonal Pattern (Pattern 4) -->
-        <Group name="bg_diagonals_group" x="0" y="0" width="450" height="450">
-            <Transform target="alpha" value="[CONFIGURATION.bgPattern] == 4 ? 20 : 0" />
-            <PartDraw x="0" y="0" width="450" height="450" name="bg_diagonals_draw">
-                <Line startX="0" startY="0" endX="450" endY="450"> <Stroke color="#ffffffff" thickness="3"/> </Line>
-                <Line startX="100" startY="-100" endX="550" endY="350"> <Stroke color="#ffffffff" thickness="3"/> </Line>
-                <Line startX="200" startY="-200" endX="650" endY="250"> <Stroke color="#ffffffff" thickness="3"/> </Line>
-                <Line startX="-100" startY="100" endX="350" endY="550"> <Stroke color="#ffffffff" thickness="3"/> </Line>
-                <Line startX="-200" startY="200" endX="250" endY="650"> <Stroke color="#ffffffff" thickness="3"/> </Line>
-                <Line startX="450" startY="0" endX="0" endY="450"> <Stroke color="#ffffffff" thickness="3"/> </Line>
-                <Line startX="550" startY="100" endX="100" endY="550"> <Stroke color="#ffffffff" thickness="3"/> </Line>
-                <Line startX="650" startY="200" endX="200" endY="650"> <Stroke color="#ffffffff" thickness="3"/> </Line>
-                <Line startX="350" startY="-100" endX="-100" endY="350"> <Stroke color="#ffffffff" thickness="3"/> </Line>
-                <Line startX="250" startY="-200" endX="-200" endY="250"> <Stroke color="#ffffffff" thickness="3"/> </Line>
-            </PartDraw>
+        <!-- Background Image -->
+        <Group x="0" y="0" width="450" height="450" name="bg_image_group" alpha="255">
+            <Variant mode="AMBIENT" target="alpha" value="0" />
+            <ListConfiguration id="bgImage">
+                <ListOption id="0">
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_0"><Image resource="background_1" /></PartImage>
+                </ListOption>
+                <ListOption id="1">
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_1"><Image resource="background_2" /></PartImage>
+                </ListOption>
+                <ListOption id="2">
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_2"><Image resource="background_3" /></PartImage>
+                </ListOption>
+                <ListOption id="3">
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_3"><Image resource="background_4" /></PartImage>
+                </ListOption>
+                <ListOption id="4">
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_4"><Image resource="background_5" /></PartImage>
+                </ListOption>
+                <ListOption id="5">
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_5"><Image resource="background_6" /></PartImage>
+                </ListOption>
+                <ListOption id="6">
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_6"><Image resource="background_4" /></PartImage>
+                </ListOption>
+                <ListOption id="7">
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_7"><Image resource="background_8" /></PartImage>
+                </ListOption>
+                <ListOption id="8">
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_8"><Image resource="background_9" /></PartImage>
+                </ListOption>
+                <ListOption id="9">
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_9"><Image resource="background_10" /></PartImage>
+                </ListOption>
+            </ListConfiguration>
         </Group>
 
         <!-- Top Battery Widget -->
@@ -138,7 +164,7 @@
                     <Transform target="scaleX" value="[BATTERY_PERCENT] / 100" />
                     <PartDraw x="0" y="0" width="48" height="6" name="battery_fg_bar">
                         <Line startX="0" startY="3" endX="48" endY="3">
-                            <Stroke color="[CONFIGURATION.accentColor]" thickness="6" cap="ROUND" />
+                            <Stroke color="[CONFIGURATION.themeColor.1]" thickness="6" cap="ROUND" />
                         </Line>
                     </PartDraw>
                 </Group>
@@ -147,7 +173,7 @@
             <!-- Battery Percentage -->
             <PartText x="0" y="15" width="200" height="35" name="battery_text">
                 <Text align="CENTER">
-                    <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.themeColor]" weight="BOLD">
+                    <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
                         <Template><![CDATA[%s%%]]><Parameter expression="[BATTERY_PERCENT]" /></Template>
                     </Font>
                 </Text>
@@ -162,7 +188,7 @@
             <Complication type="SHORT_TEXT">
                 <PartText x="0" y="15" width="170" height="30" name="Slot1_ShortText">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="26" color="[CONFIGURATION.themeColor]" weight="BOLD">
+                        <Font family="SYNC_TO_DEVICE" size="26" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -177,7 +203,7 @@
             <Localization calendar="GREGORIAN" />
             <Variant mode="AMBIENT" target="alpha" value="0" />
             <Text align="CENTER" ellipsis="TRUE">
-                <Font family="SYNC_TO_DEVICE" size="24" color="[CONFIGURATION.themeColor]" weight="BOLD">
+                <Font family="SYNC_TO_DEVICE" size="24" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
                     <Template><![CDATA[%s, %s %s]]><Parameter expression="[DAY_OF_WEEK_S]" /><Parameter expression="[DAY]" /><Parameter expression="[MONTH_S]" /></Template>
                 </Font>
             </Text>
@@ -200,14 +226,14 @@
                         </PartImage>
                     </Compare>
                     <Compare expression="hasMono">
-                        <PartImage x="45" y="15" width="30" height="30" name="Weather_MonoIcon" tintColor="[CONFIGURATION.accentColor]" alpha="255">
+                        <PartImage x="45" y="15" width="30" height="30" name="Weather_MonoIcon" tintColor="[CONFIGURATION.themeColor.1]" alpha="255">
                             <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
                         </PartImage>
                     </Compare>
                 </Condition>
                 <PartText x="85" y="15" width="85" height="30" name="Weather_Text" alpha="255">
                     <Text align="START" ellipsis="TRUE">
-                        <Font family="SYNC_TO_DEVICE" size="26" color="[CONFIGURATION.themeColor]" weight="BOLD">
+                        <Font family="SYNC_TO_DEVICE" size="26" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -217,7 +243,7 @@
                 <PartImage x="64" y="9" width="42" height="42" name="Weather_SmallImage"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
             </Complication>
             <Complication type="MONOCHROMATIC_IMAGE">
-                <PartImage x="64" y="9" width="42" height="42" name="Weather_MonoImage" tintColor="[CONFIGURATION.accentColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="64" y="9" width="42" height="42" name="Weather_MonoImage" tintColor="[CONFIGURATION.themeColor.1]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
             </Complication>
             <Complication type="PHOTO_IMAGE">
                 <PartImage x="64" y="9" width="42" height="42" name="Weather_PhotoImage"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
@@ -238,7 +264,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="450" height="120">
                         <TimeText format="hh:mm" hourFormat="24" x="0" y="0" width="450" height="120" align="CENTER">
-                            <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
+                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -248,7 +274,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="450" height="120">
                         <TimeText format="hh:mm" hourFormat="24" x="0" y="0" width="450" height="120" align="CENTER">
-                            <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
+                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -258,7 +284,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="450" height="120">
                         <TimeText format="hh:mm" hourFormat="24" x="0" y="0" width="450" height="120" align="CENTER">
-                            <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
+                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -273,7 +299,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="450" height="120">
                         <TimeText format="hh:mm" hourFormat="12" x="0" y="0" width="450" height="120" align="CENTER">
-                            <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
+                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="110" weight="NORMAL" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -283,7 +309,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="450" height="120">
                         <TimeText format="hh:mm" hourFormat="12" x="0" y="0" width="450" height="120" align="CENTER">
-                            <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
+                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="110" weight="BOLD" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -293,7 +319,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="450" height="120">
                         <TimeText format="hh:mm" hourFormat="12" x="0" y="0" width="450" height="120" align="CENTER">
-                            <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
+                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="110" weight="LIGHT" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -309,7 +335,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="70" height="40">
                         <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
-                            <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL" />
+                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -319,7 +345,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="70" height="40">
                         <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
-                            <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="26" weight="BOLD" />
+                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="BOLD" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -329,7 +355,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="70" height="40">
                         <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
-                            <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT" />
+                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -348,7 +374,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_am_text_normal">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL">AM</Font>
+                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL">AM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -357,7 +383,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_am_text_bold">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="26" weight="BOLD">AM</Font>
+                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="BOLD">AM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -366,7 +392,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_am_text_light">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT">AM</Font>
+                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT">AM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -380,7 +406,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_pm_text_normal">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL">PM</Font>
+                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL">PM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -389,7 +415,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_pm_text_bold">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="26" weight="BOLD">PM</Font>
+                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="BOLD">PM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -398,7 +424,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_pm_text_light">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT">PM</Font>
+                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT">PM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -414,14 +440,14 @@
             <Complication type="LONG_TEXT">
                 <PartText x="0" y="0" width="370" height="18" name="Event_Long_Title">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="14" color="[CONFIGURATION.themeColor]" weight="NORMAL">
+                        <Font family="SYNC_TO_DEVICE" size="14" color="[CONFIGURATION.themeColor.1]" weight="NORMAL">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TITLE]" /></Template>
                         </Font>
                     </Text>
                 </PartText>
                 <PartText x="0" y="18" width="370" height="27" name="Event_Long_Text">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.themeColor]" weight="BOLD">
+                        <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -430,14 +456,14 @@
             <Complication type="SHORT_TEXT">
                 <PartText x="0" y="0" width="370" height="18" name="Event_Short_Title">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="14" color="[CONFIGURATION.themeColor]" weight="NORMAL">
+                        <Font family="SYNC_TO_DEVICE" size="14" color="[CONFIGURATION.themeColor.1]" weight="NORMAL">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TITLE]" /></Template>
                         </Font>
                     </Text>
                 </PartText>
                 <PartText x="0" y="18" width="370" height="27" name="Event_Short_Text">
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.themeColor]" weight="BOLD">
+                        <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
                             <Template><![CDATA[%s]]><Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -447,7 +473,7 @@
                 <PartImage x="164" y="1" width="42" height="42" name="Event_SmallImage"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
             </Complication>
             <Complication type="MONOCHROMATIC_IMAGE">
-                <PartImage x="164" y="1" width="42" height="42" name="Event_MonoImage" tintColor="[CONFIGURATION.accentColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="164" y="1" width="42" height="42" name="Event_MonoImage" tintColor="[CONFIGURATION.themeColor.1]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
             </Complication>
             <Complication type="PHOTO_IMAGE">
                 <PartImage x="164" y="1" width="42" height="42" name="Event_PhotoImage"><Image resource="[COMPLICATION.PHOTO_IMAGE]" /></PartImage>
@@ -461,7 +487,7 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
             <BoundingOval x="0" y="0" width="42" height="42" />
             <Complication type="MONOCHROMATIC_IMAGE">
-                <PartImage x="0" y="0" width="42" height="42" name="Slot4_MonoImage" tintColor="[CONFIGURATION.accentColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="0" y="0" width="42" height="42" name="Slot4_MonoImage" tintColor="[CONFIGURATION.themeColor.1]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
             </Complication>
             <Complication type="SMALL_IMAGE">
                 <PartImage x="0" y="0" width="42" height="42" name="Slot4_SmallImage"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
@@ -477,7 +503,7 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
             <BoundingOval x="0" y="0" width="42" height="42" />
             <Complication type="MONOCHROMATIC_IMAGE">
-                <PartImage x="0" y="0" width="42" height="42" name="Slot5_MonoImage" tintColor="[CONFIGURATION.accentColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="0" y="0" width="42" height="42" name="Slot5_MonoImage" tintColor="[CONFIGURATION.themeColor.1]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
             </Complication>
             <Complication type="SMALL_IMAGE">
                 <PartImage x="0" y="0" width="42" height="42" name="Slot5_SmallImage"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
@@ -493,7 +519,7 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
             <BoundingOval x="0" y="0" width="42" height="42" />
             <Complication type="MONOCHROMATIC_IMAGE">
-                <PartImage x="0" y="0" width="42" height="42" name="Slot6_MonoImage" tintColor="[CONFIGURATION.accentColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="0" y="0" width="42" height="42" name="Slot6_MonoImage" tintColor="[CONFIGURATION.themeColor.1]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
             </Complication>
             <Complication type="SMALL_IMAGE">
                 <PartImage x="0" y="0" width="42" height="42" name="Slot6_SmallImage"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
@@ -509,7 +535,7 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
             <BoundingOval x="0" y="0" width="42" height="42" />
             <Complication type="MONOCHROMATIC_IMAGE">
-                <PartImage x="0" y="0" width="42" height="42" name="Slot7_MonoImage" tintColor="[CONFIGURATION.accentColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="0" y="0" width="42" height="42" name="Slot7_MonoImage" tintColor="[CONFIGURATION.themeColor.1]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
             </Complication>
             <Complication type="SMALL_IMAGE">
                 <PartImage x="0" y="0" width="42" height="42" name="Slot7_SmallImage"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
@@ -525,7 +551,7 @@
             <DefaultProviderPolicy defaultSystemProvider="EMPTY" defaultSystemProviderType="SMALL_IMAGE" />
             <BoundingOval x="0" y="0" width="42" height="42" />
             <Complication type="MONOCHROMATIC_IMAGE">
-                <PartImage x="0" y="0" width="42" height="42" name="Slot8_MonoImage" tintColor="[CONFIGURATION.accentColor]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
+                <PartImage x="0" y="0" width="42" height="42" name="Slot8_MonoImage" tintColor="[CONFIGURATION.themeColor.1]"><Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" /></PartImage>
             </Complication>
             <Complication type="SMALL_IMAGE">
                 <PartImage x="0" y="0" width="42" height="42" name="Slot8_SmallImage"><Image resource="[COMPLICATION.SMALL_IMAGE]" /></PartImage>
@@ -542,7 +568,7 @@
             <Launch target="com.google.android.contacts" />
             <PartText x="0" y="0" width="450" height="35" name="logo_text">
                 <Text align="CENTER">
-                    <Font family="corinthia" size="28" color="[CONFIGURATION.themeColor]">PanSar</Font>
+                    <Font family="corinthia" size="28" color="[CONFIGURATION.themeColor.2]">PanSar</Font>
                 </Text>
             </PartText>
         </Group>

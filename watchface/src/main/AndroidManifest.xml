@@ -12,14 +12,11 @@
 
         <property
             android:name="com.google.wear.watchface.format.version"
-            android:value="1" />
+            android:value="2" />
 
-        <!-- Optionally add details about the publisher. -->
-        <!--
-           <property
-          android:name="com.google.wear.watchface.format.publisher"
-          android:value="YourPublisherNameHere" />
-        -->
+        <property
+            android:name="com.google.wear.watchface.format.publisher"
+            android:value="PanSar" />
     </application>
 
 </manifest>
