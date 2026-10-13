@@ -66,7 +66,7 @@ Canvas: **450 x 450** circular display (`clipShape="CIRCLE"`, `CLOCK_TYPE=DIGITA
 | Configuration ID | Type | Options / Values | Default | Description |
 |---|---|---|---|---|
 | `themeColor` | Color | 11 options (`0`–`10`), see below | `0` (White) | Three-color theme palette |
-| `bgImage` | List | `0`–`9` → `background_1` … `background_10` | `0` | Background texture image |
+| `bgImage` | List | `0`–`8` → `background_1` … `background_9` | `0` | Background texture image |
 | `clockFormat` | List | `0` (24 Hour), `1` (12 Hour) | `0` | Time format |
 | `clockWeight` | List | `0` (Normal), `1` (Bold), `2` (Light) | `0` | Font weight for clock, seconds, AM/PM |
 | `showSeconds` | Boolean | `TRUE` / `FALSE` | `TRUE` | Toggle seconds display |
@@ -83,7 +83,7 @@ Canvas: **450 x 450** circular display (`clipShape="CIRCLE"`, `CLOCK_TYPE=DIGITA
 ### B. Core Components
 - **Background:** solid `PartDraw` tinted with `themeColor.0` + `bgImage` texture `ListConfiguration`. Both hidden in ambient.
 - **Battery widget:** launches `BATTERY_STATUS`; `[BATTERY_PERCENT]%` text + horizontal progress bar toggled by `showBattery`. The bar is red (`#ff0101`) at 0–9% and `themeColor.1` at 10–100%.
-- **Date:** `PartText` with `%s, %s %s %s` template (`DAY_OF_WEEK_S`, `DAY`, `MONTH_S`, `YEAR`), Gregorian calendar, launches `CALENDAR`.
+- **Date:** `PartText` with `%s, %s %s %s` template (`DAY_OF_WEEK_S`, `DAY`, `MONTH_S`, `YEAR`), Gregorian calendar, launches `CALENDAR`. Stays visible in ambient (dimmed by overlay).
 - **Digital clock:** `Group` launching `ALARM`. 2 formats × 3 weights = 6 `DigitalClock` variants toggled by alpha `Transform`s.
 - **Seconds:** `TimeText format="ss"` in 3 weights, toggled by `showSeconds`, hidden in ambient.
 - **AM/PM:** shown only when `clockFormat == 1`, via `[AMPM_STATE]` (`0` = AM, `1` = PM), 3 weights, hidden in ambient.
@@ -102,15 +102,15 @@ Canvas: **450 x 450** circular display (`clipShape="CIRCLE"`, `CLOCK_TYPE=DIGITA
 - Hidden in ambient mode.
 
 ### B. Row 1: Date & Weather (`y=85, h=60`)
-- **Date (Left, `x=30, w=190`):** size 20, `BOLD`, `themeColor.2`. Hidden in ambient.
+- **Date (Left, `x=30, w=190`):** size 20, `BOLD`, `themeColor.2`. Stays visible in ambient (dimmed by overlay).
 - **Slot 2 (Right, `x=240, w=170`): Weather / Info complication.**
   - Default: `EMPTY` (`SHORT_TEXT`).
   - Supports: `SHORT_TEXT`, `SMALL_IMAGE`, `MONOCHROMATIC_IMAGE`, `PHOTO_IMAGE`, `EMPTY`.
 
 ### C. Row 2: Digital Clock (`x=0, y=145, w=450, h=120`)
 - Clock size 110, `themeColor.2`.
-- **Seconds (`x=380, y=15` relative):** size 26, `themeColor.2`.
-- **AM/PM (`x=380, y=65` relative):** size 26, `themeColor.2`, directly below seconds.
+- **Seconds (`x=380, y=15` relative):** size 26, `themeColor.1`.
+- **AM/PM (`x=380, y=65` relative):** size 26, `themeColor.1`, directly below seconds.
 
 ### D. Row 3: Next Event (`x=40, y=260, w=370, h=45`)
 - **Slot 3:** default `NEXT_EVENT` (`LONG_TEXT`).

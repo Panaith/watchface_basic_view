@@ -26,7 +26,6 @@
             <ListOption id="6" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
             <ListOption id="7" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
             <ListOption id="8" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
-            <ListOption id="9" displayName="opt_solid_color" screenReaderText="opt_solid_color" />
         </ListConfiguration>
         <ListConfiguration id="clockFormat" displayName="config_clock_format" screenReaderText="config_clock_format" defaultValue="0">
             <ListOption id="0" displayName="opt_clock_format_24_hour" screenReaderText="opt_clock_format_24_hour" />
@@ -125,16 +124,13 @@
                     <PartImage x="0" y="0" width="450" height="450" name="bg_image_5"><Image resource="background_6" /></PartImage>
                 </ListOption>
                 <ListOption id="6">
-                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_6"><Image resource="background_4" /></PartImage>
+                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_6"><Image resource="background_7" /></PartImage>
                 </ListOption>
                 <ListOption id="7">
                     <PartImage x="0" y="0" width="450" height="450" name="bg_image_7"><Image resource="background_8" /></PartImage>
                 </ListOption>
                 <ListOption id="8">
                     <PartImage x="0" y="0" width="450" height="450" name="bg_image_8"><Image resource="background_9" /></PartImage>
-                </ListOption>
-                <ListOption id="9">
-                    <PartImage x="0" y="0" width="450" height="450" name="bg_image_9"><Image resource="background_10" /></PartImage>
                 </ListOption>
             </ListConfiguration>
         </Group>
@@ -197,7 +193,6 @@
         <PartText x="30" y="85" width="190" height="60" name="Date_Display" alpha="255">
             <Launch target="CALENDAR" />
             <Localization calendar="GREGORIAN" />
-            <Variant mode="AMBIENT" target="alpha" value="0" />
             <Text align="CENTER" ellipsis="TRUE">
                 <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
                     <Template><![CDATA[%s, %s %s %s]]><Parameter expression="[DAY_OF_WEEK_S]" /><Parameter expression="[DAY]" /><Parameter expression="[MONTH_S]" /><Parameter expression="[YEAR]" /></Template>
@@ -331,7 +326,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="70" height="40">
                         <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
-                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL" />
+                            <Font color="[CONFIGURATION.themeColor.1]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -341,7 +336,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="70" height="40">
                         <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
-                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="BOLD" />
+                            <Font color="[CONFIGURATION.themeColor.1]" family="SYNC_TO_DEVICE" size="26" weight="BOLD" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -351,7 +346,7 @@
                     <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
                     <DigitalClock x="0" y="0" width="70" height="40">
                         <TimeText format="ss" x="0" y="0" width="70" height="40" align="START">
-                            <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT" />
+                            <Font color="[CONFIGURATION.themeColor.1]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT" />
                         </TimeText>
                     </DigitalClock>
                 </Group>
@@ -370,7 +365,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_am_text_normal">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL">AM</Font>
+                                <Font color="[CONFIGURATION.themeColor.1]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL">AM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -379,7 +374,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_am_text_bold">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="BOLD">AM</Font>
+                                <Font color="[CONFIGURATION.themeColor.1]" family="SYNC_TO_DEVICE" size="26" weight="BOLD">AM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -388,7 +383,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_am_text_light">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT">AM</Font>
+                                <Font color="[CONFIGURATION.themeColor.1]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT">AM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -402,7 +397,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 0 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_pm_text_normal">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL">PM</Font>
+                                <Font color="[CONFIGURATION.themeColor.1]" family="SYNC_TO_DEVICE" size="26" weight="NORMAL">PM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -411,7 +406,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 1 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_pm_text_bold">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="BOLD">PM</Font>
+                                <Font color="[CONFIGURATION.themeColor.1]" family="SYNC_TO_DEVICE" size="26" weight="BOLD">PM</Font>
                             </Text>
                         </PartText>
                     </Group>
@@ -420,7 +415,7 @@
                         <Transform target="alpha" value="[CONFIGURATION.clockWeight] == 2 ? 255 : 0" />
                         <PartText x="0" y="0" width="70" height="40" name="ampm_pm_text_light">
                             <Text align="START">
-                                <Font color="[CONFIGURATION.themeColor.2]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT">PM</Font>
+                                <Font color="[CONFIGURATION.themeColor.1]" family="SYNC_TO_DEVICE" size="26" weight="LIGHT">PM</Font>
                             </Text>
                         </PartText>
                     </Group>
