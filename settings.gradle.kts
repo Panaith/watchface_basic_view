@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "minimal_watchface"
+rootProject.name = "watchface_basic_view"
 include(":watchface")
