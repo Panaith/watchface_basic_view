@@ -424,7 +424,7 @@
         </Group>
 
         <!-- Row 3: Next Day Event Complication -->
-        <ComplicationSlot slotId="3" displayName="Next Event" isCustomizable="FALSE" supportedTypes="LONG_TEXT SHORT_TEXT SMALL_IMAGE MONOCHROMATIC_IMAGE PHOTO_IMAGE EMPTY" x="40" y="260" width="370" height="45" name="Slot3_NextEvent" alpha="255">
+        <ComplicationSlot slotId="3" displayName="Next Event" isCustomizable="TRUE" supportedTypes="LONG_TEXT SHORT_TEXT SMALL_IMAGE MONOCHROMATIC_IMAGE PHOTO_IMAGE EMPTY" x="40" y="260" width="370" height="45" name="Slot3_NextEvent" alpha="255">
             <Variant mode="AMBIENT" target="alpha" value="0"/>
             <DefaultProviderPolicy defaultSystemProvider="NEXT_EVENT" defaultSystemProviderType="LONG_TEXT"/>
             <BoundingBox x="0" y="0" width="370" height="45"/>
