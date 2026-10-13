@@ -113,12 +113,12 @@ Canvas: **450 x 450** circular display (`clipShape="CIRCLE"`, `CLOCK_TYPE=DIGITA
 - **AM/PM (`x=380, y=65` relative):** size 26, `themeColor.1`, directly below seconds.
 
 ### D. Row 3: Next Event (`x=40, y=260, w=370, h=45`)
-- **Slot 3:** default `NEXT_EVENT` (`LONG_TEXT`).
+- **Slot 3:** non-customizable (`isCustomizable="FALSE"`), default `NEXT_EVENT` (`LONG_TEXT`), fallback text "Next event" when empty.
 - Supports: `LONG_TEXT`, `SHORT_TEXT`, `SMALL_IMAGE`, `MONOCHROMATIC_IMAGE`, `PHOTO_IMAGE`, `EMPTY`.
 
 ### E. Bottom Arc: App Shortcuts (Slots 4–8, `42 x 42`, `BoundingOval`)
 - **Slot 4:** `x=78, y=310` · **Slot 5:** `x=140, y=330` · **Slot 6:** `x=204, y=340` (center) · **Slot 7:** `x=268, y=330` · **Slot 8:** `x=330, y=310`
-- Supports: `MONOCHROMATIC_IMAGE`, `SMALL_IMAGE`, `PHOTO_IMAGE`, `EMPTY`. Default: `EMPTY` (`SMALL_IMAGE`).
+- Supports: `MONOCHROMATIC_IMAGE`, `SMALL_IMAGE`, `PHOTO_IMAGE`, `EMPTY`. Default: `APP_SHORTCUT` (`SMALL_IMAGE`).
 - Hidden in ambient mode.
 
 ### F. Logo (`x=0, y=400, w=450, h=35`)
