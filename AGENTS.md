@@ -102,7 +102,7 @@ Canvas: **450 x 450** circular display (`clipShape="CIRCLE"`, `CLOCK_TYPE=DIGITA
 - Hidden in ambient mode.
 
 ### B. Row 1: Date & Weather (`y=85, h=60`)
-- **Date (Left, `x=30, w=190`):** size 20, `BOLD`, `themeColor.2`. Stays visible in ambient (dimmed by overlay).
+- **Date (Left, `x=45, w=180`):** size 20, `BOLD`, `themeColor.2`. Stays visible in ambient (dimmed by overlay).
 - **Slot 2 (Right, `x=240, w=170`): Weather / Info complication.**
   - Default: `EMPTY` (`SHORT_TEXT`).
   - Supports: `SHORT_TEXT`, `SMALL_IMAGE`, `MONOCHROMATIC_IMAGE`, `PHOTO_IMAGE`, `EMPTY`.

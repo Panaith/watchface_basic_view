@@ -190,7 +190,7 @@
         </Group>
 
         <!-- Static Date Display (matching watchface_total_view) -->
-        <PartText x="30" y="85" width="190" height="60" name="Date_Display" alpha="255">
+        <PartText x="45" y="85" width="180" height="60" name="Date_Display" alpha="255">
             <Launch target="CALENDAR"/>
             <Localization calendar="GREGORIAN"/>
             <Text align="CENTER" ellipsis="TRUE">
