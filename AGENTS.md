@@ -83,7 +83,7 @@ Canvas: **450 x 450** circular display (`clipShape="CIRCLE"`, `CLOCK_TYPE=DIGITA
 ### B. Core Components
 - **Background:** solid `PartDraw` tinted with `themeColor.0` + `bgImage` texture `ListConfiguration`. Both hidden in ambient.
 - **Battery widget:** launches `BATTERY_STATUS`; `[BATTERY_PERCENT]%` text + horizontal progress bar toggled by `showBattery`. The bar is red (`#ff0101`) at 0–9% and `themeColor.1` at 10–100%.
-- **Date:** `PartText` with `%s, %s %s %s` template (`DAY_OF_WEEK_S`, `DAY`, `MONTH_S`, `YEAR`), Gregorian calendar, launches `CALENDAR`. Stays visible in ambient (dimmed by overlay).
+- **Date:** Two-line `Group` launching `CALENDAR` (top line: `[DAY_OF_WEEK_F]`, bottom line: `%s %s %s` with `DAY`, `MONTH_S`, `YEAR`), Gregorian calendar. Stays visible in ambient (dimmed by overlay).
 - **Digital clock:** `Group` launching `ALARM`. 2 formats × 3 weights = 6 `DigitalClock` variants toggled by alpha `Transform`s.
 - **Seconds:** `TimeText format="ss"` in 3 weights, toggled by `showSeconds`, hidden in ambient.
 - **AM/PM:** shown only when `clockFormat == 1`, via `[AMPM_STATE]` (`0` = AM, `1` = PM), 3 weights, hidden in ambient.
@@ -102,7 +102,7 @@ Canvas: **450 x 450** circular display (`clipShape="CIRCLE"`, `CLOCK_TYPE=DIGITA
 - Hidden in ambient mode.
 
 ### B. Row 1: Date & Weather (`y=85, h=60`)
-- **Date (Left, `x=45, w=180`):** size 20, `BOLD`, `themeColor.2`. Stays visible in ambient (dimmed by overlay).
+- **Date (Left, `x=45, w=185`):** Two lines (top: full day of week `DAY_OF_WEEK_F` at `y=0, h=30`; bottom: `DAY MONTH_S YEAR` at `y=30, h=30`), size 23, `BOLD`, `themeColor.2`. Stays visible in ambient (dimmed by overlay).
 - **Slot 2 (Right, `x=240, w=170`): Weather / Info complication.**
   - Default: `EMPTY` (`SHORT_TEXT`).
   - Supports: `SHORT_TEXT`, `SMALL_IMAGE`, `MONOCHROMATIC_IMAGE`, `PHOTO_IMAGE`, `EMPTY`.

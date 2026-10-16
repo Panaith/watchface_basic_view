@@ -189,16 +189,26 @@
             </PartText>
         </Group>
 
-        <!-- Static Date Display (matching watchface_total_view) -->
-        <PartText x="45" y="85" width="180" height="60" name="Date_Display" alpha="255">
+        <!-- Static Date Display (Two-line layout: Day of week on top, Date below) -->
+        <Group x="45" y="85" width="185" height="60" name="Date_Display" alpha="255">
             <Launch target="CALENDAR"/>
-            <Localization calendar="GREGORIAN"/>
-            <Text align="CENTER" ellipsis="TRUE">
-                <Font family="SYNC_TO_DEVICE" size="20" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
-                    <Template><![CDATA[%s, %s %s %s]]><Parameter expression="[DAY_OF_WEEK_S]"/><Parameter expression="[DAY]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[YEAR]"/></Template>
-                </Font>
-            </Text>
-        </PartText>
+            <PartText x="0" y="0" width="185" height="30" name="Date_DayOfWeek" alpha="255">
+                <Localization calendar="GREGORIAN"/>
+                <Text align="CENTER" ellipsis="TRUE">
+                    <Font family="SYNC_TO_DEVICE" size="23" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
+                        <Template><![CDATA[%s]]><Parameter expression="[DAY_OF_WEEK_F]"/></Template>
+                    </Font>
+                </Text>
+            </PartText>
+            <PartText x="0" y="30" width="185" height="30" name="Date_FullDate" alpha="255">
+                <Localization calendar="GREGORIAN"/>
+                <Text align="CENTER" ellipsis="TRUE">
+                    <Font family="SYNC_TO_DEVICE" size="23" color="[CONFIGURATION.themeColor.2]" weight="BOLD">
+                        <Template><![CDATA[%s %s %s]]><Parameter expression="[DAY]"/><Parameter expression="[MONTH_S]"/><Parameter expression="[YEAR]"/></Template>
+                    </Font>
+                </Text>
+            </PartText>
+        </Group>
 
         <!-- Row 1: Right Complication (Weather) -->
         <ComplicationSlot slotId="2" displayName="Weather" isCustomizable="TRUE" supportedTypes="SHORT_TEXT SMALL_IMAGE MONOCHROMATIC_IMAGE PHOTO_IMAGE EMPTY" x="240" y="85" width="170" height="60" name="Slot2_Weather" alpha="255">
