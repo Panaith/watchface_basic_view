@@ -1,11 +1,5 @@
-*.iml
-.gradle
-/local.properties
+# Repository-wide ignores (app-specific rules live in each app's own .gitignore)
 .idea/
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
+*.iml
 GEMINI.md

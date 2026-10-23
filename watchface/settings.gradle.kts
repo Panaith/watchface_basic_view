@@ -23,4 +23,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "watchface_basic_view"
-include(":watchface")
+include(":app")
